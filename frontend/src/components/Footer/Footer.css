@@ -1,0 +1,40 @@
+.Footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(80, 178, 192);
+  font-family: 'Gill Sans', sans-serif;
+  font-size: 0.8em;
+  color: rgb(32, 30, 31);
+}
+
+.Left-container {
+  align-items: start;
+}
+
+.Logo-footer {
+  margin-top: 5px;
+  height: 30px;
+  width: 30px;
+}
+
+.Links {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.Left-container p {
+  margin-bottom: 5px;
+}
+
+.Right-containter {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.Socials {
+  margin-top: 5px;
+}
+
+.Emails {
+  margin-top: 5px;
+}

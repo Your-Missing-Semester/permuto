@@ -1,0 +1,63 @@
+.BodyOne {
+  align-content: center;
+  background-color: rgb(254, 239, 221);
+  font-family: 'Gill Sans', sans-serif;
+  margin: auto;
+  justify-content: space-evenly;
+}
+
+.Logo {
+  border: 5px outset rgb(250, 170, 141);
+  width: 90%;
+  height: 100px;
+  margin: 15px auto;
+}
+
+.Banner {
+  border: 5px outset rgb(250, 170, 141);
+  color: rgb(32, 30, 31);
+  width: 90%;
+  height: 100px;
+  margin: 15px auto;
+}
+
+.Content-container-B1 {
+  justify-content: flex-start;
+  background-color: rgb(254, 239, 221);
+  display: flex;
+  width: 60%;
+  margin-left: 70px;
+}
+
+.Text-container-B1 h1 {
+  white-space: normal;
+  font-size: 2.0em;
+  color: rgb(255, 64, 0);
+  width: 80%;
+}
+  
+.Text-container-B1 p {
+  text-align: start;
+  white-space: normal;
+  font-size: 0.8em;
+  color: rgb(32, 30, 31);
+}
+
+.Sign-up-button {
+  text-align: center;
+  background-color: rgb(255, 64, 0);
+  font-size: small;
+  color: rgb(254, 239, 221);
+  margin: 10px auto;
+}
+
+.IMG-container-B1 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px;
+}
+
+.IMG-container-B1 img  {
+  display: block;
+}

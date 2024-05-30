@@ -1,0 +1,15 @@
+.NavBar {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-color: rgb(254, 239, 221);
+  padding: 20px;
+}
+
+.NavBar a {
+  margin-right: 20px;
+  color: rgb(32, 30, 31);
+  font-size: 0.8em;
+  font-family:'Gill Sans', sans-serif;
+}
+  
