@@ -1,90 +1,121 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 600px;
-    margin-top: 200px;
-    background: #fff;
-    padding-bottom: 40px;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #FEEFDD;
 }
 
-.header{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 9px;
-    width: 100%;
-    margin-top: 30px;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 10%;
 }
 
-.underline{
-    width: 320px;
-    height: 5px;
-    background: rgb(37, 37, 37);
-    border-radius: 9px;
-    margin: 0px 140px;
+.header {
+  font-size: 50px;
+  color: #FF4000;
+  margin-bottom: 20px;
 }
 
-.text{
-    color: black;
-    font-size: 20px;
-    font-weight: 700;
+.signup-form {
+  background-color: #FEEFDD;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
 }
 
-.text1{
-    margin: 0px 140px;
-    margin-top: -20px;
-    margin-bottom: -40px;
-    font-size: 18px;
-    font-weight: 450;
+h2 {
+  color: #FF4000;
+  margin-bottom: 50px;
 }
 
-.inputs {
-    margin-top: 60px;
-    display: flex;
-    flex-direction: column;
-    gap: 45px;
-  }
-
-.input{
-    display: flex;
-    align-items: center;
-    margin: auto;
-    width: 320px;
-    height: 50px;
-    background: rgb(231, 231, 231);
-    border-radius: 6px;
-
+form {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  align-items: flex-start;
+  width: 100%;
 }
 
-.input input{
-    margin: 0px 10px;
-    height: 50px;
-    width: 400px;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #797979;
-    font-size: 16px;
-
+label {
+  margin-bottom: 5px;
+  color: #FF4000;
+  font-size: 17px;
+  font-weight: bold;
 }
 
-.submit-container{
-    display: flex;
-    gap: 30px;
-    margin: 60px auto;
+input {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  /* Text box border color */
+  border: 3px solid #FF4000;
+  /* Text box color */
+  background-color: #FEEFDD;
+  font-weight: bold;
+  font-size: 17px;
 }
 
-.submit{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 59px;
-    color: #fff;
-    background: #FAAA8D;
-    border-radius: 50px;
-    font-size: 19px;
-    font-weight: 700;
-    cursor: pointer;
+/* Font color inside input boxes */
+input::placeholder{
+  color:#FF4000
 }
+
+.button-container {
+  display: flex;
+  width: 100%;
+}
+
+button {
+  padding: 10px;
+  width: 40%;
+  width: 48%;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.signup-btn {
+  background-color: #FF4000;
+  color: #fff;
+  font-weight: bold;
+}
+
+.login-instead-btn {
+  background-color: transparent;
+  color: #FF4000;
+  margin-right: 70px;
+  font-weight: bold;
+}
+
+.button-divider {
+  width: 106%;
+  height: 5px;
+  background-color: #FF4000;
+  margin: 50px 0;
+  margin-top: 90px;;
+}
+
+
+.login-as {
+  margin-top: -20px;
+  margin-right: 343px;
+  font-weight: bold;
+  color: #FF4000;
+}
+
+/* Placeholder: Email buttons below the "LOGIN [AS]" button */
+.placeholder-container {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  color: #FF4000;
+  justify-content: center;
+}
+
+.placeholder {
+  margin: 5px;
+  font-weight: bold;
+}
+

@@ -3,40 +3,51 @@ import './Signup.css'
 
 const Signup = () => {
   return (
-    <div className='container'>
+
+    <div className="container">
 
       <div className="header">
-      <div className="text">Create Account</div>
-
-      </div>
-
-      <div className="inputs">
-        <div className="text1">Email</div>
-        <div className="input">
-          <input type="Email" placeholder="Text" />
+        <div className="logo">[Permuto Logo]</div>
         </div>
 
-        <div className="text1">Enter password</div>
-        <div className="input">
-          <input type="Password" placeholder="Text" />
+        <h2>CREATE ACCOUNT</h2>
+
+      <div className="signup-form">
+
+        <form>
+          <label htmlFor="email">EMAIL</label>
+          <input type="text" id="email" name="email" placeholder="Text" />
+          
+          <label htmlFor="password">PASSWORD</label>
+          <input type="password" id="password" name="password" placeholder="Text" />
+
+          <label htmlFor="password">CONFIRM PASSWORD</label>
+          <input type="password" id="password" name="password" placeholder="Text" />
+
+          
+          <div className="button-container">
+            <button type="submit" className="signup-btn">SIGN UP</button>
+            <button type="button" className="login-instead-btn">LOGIN [ INSTEAD ]</button>
+          </div>
+
+        </form>
+
+        <div className="button-divider"></div>
+
+        <div className="login-as">
+          <span>LOGIN [AS]</span>
         </div>
 
-        <div className="text1">Confirm password</div>
-        <div className="input">         
-          <input type="Password" placeholder="Text" />
+        <div className="placeholder-container">
+          <span className="placeholder">[placeholder]</span>
+          <span className="placeholder">[placeholder]</span>
+          <span className="placeholder">[placeholder]</span>
+          <span className="placeholder">[placeholder]</span>
         </div>
 
-      </div>
-
-      {/* <div className="forgot-password">Sign up <span>Login [instead]</span></div> */}
-
-      <div className="submit-container">
-
-        <div className="submit">Sign Up</div>
-        <div className="submit">Login</div>
 
       </div>
-      <div className="underline"></div>
+      
     </div>
     
   )
