@@ -1,40 +1,40 @@
-.Footer {
+.footer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: rgb(80, 178, 192);
   font-family: 'Gill Sans', sans-serif;
   font-size: 0.8em;
   color: rgb(32, 30, 31);
 }
 
-.Left-container {
-  align-items: start;
+.left-container {
+  margin-left: 150px;
 }
 
-.Logo-footer {
-  margin-top: 5px;
-  height: 30px;
-  width: 30px;
+.logo {
+  align-self: center;
+  padding: 5px;
+  width: 100px;
+  height: 50px;
 }
 
-.Links {
+.links {
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-.Left-container p {
+.left-container p {
   margin-bottom: 5px;
 }
 
-.Right-containter {
-  margin-left: auto;
-  margin-right: 10px;
+.right-container {
+  margin-right: 150px;
 }
 
-.Socials {
+.socials {
   margin-top: 5px;
 }
 
-.Emails {
+.emails {
   margin-top: 5px;
 }
