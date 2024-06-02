@@ -34,8 +34,8 @@ const Signup = () => {
 
         <div className="button-divider"></div>
 
-        <div className="login-as">
-          <span>LOGIN [AS]</span>
+        <div className="signup-as">
+          <span>SIGN UP [AS]</span>
         </div>
 
         <div className="placeholder-container">
