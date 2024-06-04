@@ -1,4 +1,4 @@
-.login-page{
+.login-page {
     background-color: var(--black);
     font-family: 'Gill Sans', sans-serif;
     display: flex;
@@ -25,11 +25,11 @@
     margin: 3vh 3vh 3vh 1.5vh;
 }
 
-#logo_symbol{
+.logo img {
     width: 50%;
 }
 
-.logo{
+.logo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,14 +37,14 @@
     padding: 0;
 }
 
-.title{
+.title {
     text-align: center;
     margin: 0 auto 54px auto;
     line-height: 0;
     color:var(--orange);
 }
 
-.form{
+.form {
     width: 40vh;
     margin: 0 auto 0vh auto;
     text-align: left;
@@ -53,7 +53,7 @@
     color:var(--orange);
 }
 
-.form input{
+.form input {
     width: 38.2vh;
     border: 3px solid var(--orange);
     padding: 5px 5px 5px 5px;
@@ -63,50 +63,50 @@
     color:var(--orange);
 }
 
-.form input:focus{
+.form input:focus {
     border: 3px solid var(--orange);
     box-shadow: 3px 4px 5px 3px var(--lightorange) ;
     outline: none;
 }
 
-::placeholder{
+::placeholder {
     color:var(--orange);
     font-size: 16px;
 }
 
-.forgot-password-link{
+.forgot-password-link {
     width: 40vh;
     text-align: left;
     margin: 0 auto 16px auto;
 }
 
-#forgot-password-link{
+.forgot-password-link a {
     color: var(--orange);
     text-decoration: none;
     font-weight: 550;
 }
 
-.login-signup-buttons{
+.login-signup-buttons {
     display: grid;
     grid-template-columns: auto auto;
     width: 40vh;
     margin: 0 auto 0 auto;
 }
 
-.login-button{
+.login-button {
     width: 11vh;
     color: var(--orange);
     text-align: left;
     margin: 0 0 0 auto;
 }
 
-.login-button button:hover{
+.login-button button:hover {
     cursor: pointer;
     box-shadow: 3px 4px 5px 2px var(--lightorange) ;
 
 }
 
-.login-button button{
+.login-button button {
     background-color: var(--orange);
     color:var(--tan);
     font-weight: bold;
@@ -115,7 +115,7 @@
     border: none;
 }
 
-.sign-up-link{
+.sign-up-link {
     width: 29vh;
     text-align: left;
     margin: 0 auto 44px 0;
@@ -124,17 +124,17 @@
     line-height: 3.8vh;
 }
 
-#sign-up-link{
+.sign-up-link a {
     color: var(--orange);
     font-weight: 550;
 }
 
-.login-as-header hr{
+.login-as-header hr {
     border: 2px solid var(--orange);
     margin-bottom: 28px;
 }
 
-.login-as-header{
+.login-as-header {
     width: 40vh;
     margin: 0 auto 0 auto;
     text-align: left;
@@ -144,7 +144,7 @@
     font-size: 16px;
 }
 
-.login-as-body{
+.login-as-body {
     width: 40vh;
     margin: 0 auto 0 auto;
     display: grid;
@@ -158,10 +158,10 @@ h1 {
     line-height: 0;
 }
 
-p{
+p {
     line-height: 0;
 }
 
-a{
+a {
     text-decoration: none;
 }

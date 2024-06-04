@@ -1,7 +1,7 @@
 import React from 'react'
 import './login.css'
-import Logo_orange_tan from '../assets/logo_orange_tan.svg'
-import Logo_orange from '../assets/logo_orange_black.svg'
+import Logo_orange_tan from '../Assets/logoOrangeTan.svg'
+import Logo_orange from '../Assets/logoOrangeBlack.svg'
 
 const LoginForm = () => {
     const [email, setEmail] = React.useState('');
@@ -9,7 +9,6 @@ const LoginForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const loginInfo = {email, password}
-        console.log(loginInfo);
     }
 
     return (
@@ -17,7 +16,7 @@ const LoginForm = () => {
             <div className='form-side'>
                 <div className="header">  
                     <header className="logo">
-                        <img src={Logo_orange} alt="Permuto Logo" id='logo_symbol'/>
+                        <img src={Logo_orange} alt="Permuto Logo"/>
                     </header>
         
                     <div className="title">
@@ -44,7 +43,7 @@ const LoginForm = () => {
                     </div>
 
                     <div className='forgot-password-link'>
-                        <a href="" id='forgot-password-link'>Forgot password?</a>           {/*TODO (T10): replace with correct link*/}
+                        <a href="">Forgot password?</a>           {/*TODO (T10): replace with correct link*/}
                     </div>
 
                     <div className='login-signup-buttons'>
@@ -53,7 +52,7 @@ const LoginForm = () => {
                         </div>
 
                         <div className='sign-up-link'>
-                            <a href="" id='sign-up-link'>Sign Up</a>                        {/*TODO (T10): replace with correct link*/}
+                            <a href="">SIGN UP</a>                        {/*TODO (T10): replace with correct link*/}
                         </div>
                     </div>
 
