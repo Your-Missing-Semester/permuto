@@ -4,6 +4,7 @@ function SignUp() {
     return (
         <div className="sign-up">
             <div className="text-container">
+                {/* TODO T22: header and description */}
                 <h1>
                     Random Big Text Header lorem ipsum dolor sit amet, consectetur adipiscing elit
                 </h1>
@@ -23,7 +24,7 @@ function SignUp() {
             </div>
 
             <div className="img-container">
-                {/* TODO T#: replace image */}
+                {/* TODO T20: replace image */}
                 <img src="" alt="Person using application." width="100" height="90" /> 
             </div> 
         </div>

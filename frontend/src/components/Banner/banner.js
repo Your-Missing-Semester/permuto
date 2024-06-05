@@ -3,7 +3,7 @@ import './banner.scss';
 function Banner() {
     return (
         <div className="banner">
-            {/* TODO T#: replace banner / img */}
+            {/* TODO T18: replace banner / img */}
             <img src="" alt="Banner" />
         </div>
     );

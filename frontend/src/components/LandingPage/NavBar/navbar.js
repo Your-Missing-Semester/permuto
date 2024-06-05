@@ -4,7 +4,7 @@ function NavBar() {
     return (
         <div className="nav-bar">
             <a 
-            // TODO: T#: place HOME link here
+            // TODO: T26: place home link here
             href="replace">
                 HOME
             </a>
@@ -22,7 +22,7 @@ function NavBar() {
             </a>
             
             <a 
-            // TODO: T#: place ABOUT link here
+            // TODO: T27: place about link here
             href="replace">
                 ABOUT
             </a>    

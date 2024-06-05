@@ -4,6 +4,7 @@ function Testimonial() {
     return (
         <div className="testimonial">
             <div className="text-container">
+                {/* TODO T25: header and description */}
                 <h2>
                     Some Text Here
                 </h2>
@@ -14,7 +15,7 @@ function Testimonial() {
             </div>
 
             <div className="img-container">
-                {/* TODO T#: replace image */}
+                {/* TODO T24: replace image */}
                 <img src="" alt="Person enjoying this app." width="150" height="90"/>
             </div>
 

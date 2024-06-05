@@ -12,7 +12,7 @@ function Footer() {
                 <div className="links">
                     <a
                         className="terms-link"
-                        // TODO T#: place Terms of Service link
+                        // TODO T28: place Terms of Service link
                         href="replace"
                     >
                         Terms of Service|
@@ -20,7 +20,7 @@ function Footer() {
 
                     <a
                         className="Privacy-link"
-                        // TODO T#: place Privacy Policy link 
+                        // TODO T29: place Privacy Policy link 
                         href="replace"
                     >
                         Privacy Policy
@@ -40,7 +40,7 @@ function Footer() {
 
                     <a
                         className="instagram"
-                        // TODO T#: place instagram link
+                        // TODO T30: place instagram link
                         href="replace"
                     >
                         <img src="" alt="instagram logo"></img>
@@ -48,7 +48,7 @@ function Footer() {
 
                     <a
                         className="facebook"
-                        // TODO T#: place facebook link
+                        // TODO T30: place facebook link
                         href="replace"
                     >
                         <img src="" alt="facebook logo"></img>
@@ -56,7 +56,7 @@ function Footer() {
 
                     <a
                         className="X"
-                        // TODO T#: place X link
+                        // TODO T30: place X link
                         href="replace"
                     >
                         <img src="" alt="X logo"></img>
@@ -64,6 +64,7 @@ function Footer() {
                 </div>
 
                 <div className="emails">
+                    {/* TODO T31: place correct email */}
                     <p>
                         Business Inquiries help@permuto.com
                     </p>
