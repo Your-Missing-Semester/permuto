@@ -1,5 +1,5 @@
 .login-page {
-    background-color: var(--black);
+    background-color: #201E1F;
     font-family: 'Gill Sans', sans-serif;
     display: flex;
     justify-content: space-between;
@@ -8,7 +8,7 @@
 }
 
 .form-side {
-    background-color: var(--tan);
+    background-color: #FEEFDD;
     width: 50%;
     margin: 3vh 1.5vh 3vh 3vh;
     display: flex;
@@ -41,7 +41,7 @@
     text-align: center;
     margin: 0 auto 54px auto;
     line-height: 0;
-    color:var(--orange);
+    color:#FF4000;
 }
 
 .form {
@@ -50,27 +50,27 @@
     text-align: left;
     font-size: 16px;
     font-weight: bold;
-    color:var(--orange);
+    color:#FF4000;
 }
 
 .form input {
     width: 38.2vh;
-    border: 3px solid var(--orange);
+    border: 3px solid #FF4000;
     padding: 5px 5px 5px 5px;
-    background-color: var(--tan);
+    background-color: #FEEFDD;
     margin: 4px auto 24px auto;
     font-size: 15px;
-    color:var(--orange);
+    color:#FF4000;
 }
 
 .form input:focus {
-    border: 3px solid var(--orange);
-    box-shadow: 3px 4px 5px 3px var(--lightorange) ;
+    border: 3px solid #FF4000;
+    box-shadow: 3px 4px 5px 3px #FAAA8D ;
     outline: none;
 }
 
 ::placeholder {
-    color:var(--orange);
+    color:#FF4000;
     font-size: 16px;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .forgot-password-link a {
-    color: var(--orange);
+    color: #FF4000;
     text-decoration: none;
     font-weight: 550;
 }
@@ -95,20 +95,20 @@
 
 .login-button {
     width: 11vh;
-    color: var(--orange);
+    color: #FF4000;
     text-align: left;
     margin: 0 0 0 auto;
 }
 
 .login-button button:hover {
     cursor: pointer;
-    box-shadow: 3px 4px 5px 2px var(--lightorange) ;
+    box-shadow: 3px 4px 5px 2px #FAAA8D ;
 
 }
 
 .login-button button {
-    background-color: var(--orange);
-    color:var(--tan);
+    background-color: #FF4000;
+    color:#FEEFDD;
     font-weight: bold;
     width: 11vh;
     height: 3.8vh;
@@ -125,12 +125,12 @@
 }
 
 .sign-up-link a {
-    color: var(--orange);
+    color: #FF4000;
     font-weight: 550;
 }
 
 .login-as-header hr {
-    border: 2px solid var(--orange);
+    border: 2px solid #FF4000;
     margin-bottom: 28px;
 }
 
@@ -139,7 +139,7 @@
     margin: 0 auto 0 auto;
     text-align: left;
     line-height: 0;
-    color:var(--orange);
+    color:#FF4000;
     font-weight: bold;
     font-size: 16px;
 }
