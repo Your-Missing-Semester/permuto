@@ -49,15 +49,12 @@ input {
   margin-bottom: 20px;
   padding: 10px;
   width: 100%;
-  /* Text box border color */
   border: 3px solid #FF4000;
-  /* Text box color */
   background-color: #FEEFDD;
   font-weight: bold;
   font-size: 17px;
 }
 
-/* Font color inside input boxes */
 input::placeholder{
   color:#FF4000
 }
@@ -105,7 +102,6 @@ button {
   color: #FF4000;
 }
 
-/* Placeholder: Email buttons below the "LOGIN [AS]" button */
 .placeholder-container {
   margin-top: 5px;
   display: flex;

@@ -1,7 +1,7 @@
 import React from 'react'
 import './Signup.css'
 
-const Signup = () => {
+const SignUp = () => {
   return (
 
     <div className="container">
@@ -21,8 +21,8 @@ const Signup = () => {
           <label htmlFor="password">PASSWORD</label>
           <input type="password" id="password" name="password" placeholder="Text" />
 
-          <label htmlFor="password">CONFIRM PASSWORD</label>
-          <input type="password" id="password" name="password" placeholder="Text" />
+          <label htmlFor="passwordConfirm">CONFIRM PASSWORD</label>
+          <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="Text" />
 
           
           <div className="button-container">
@@ -53,4 +53,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default SignUp
