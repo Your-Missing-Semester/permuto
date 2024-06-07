@@ -1,0 +1,31 @@
+.product-features {
+    display: flex;
+    background-color: rgb(254, 239, 221);
+    font-family:'Gill Sans', sans-serif;
+    justify-content: space-evenly;
+}
+
+.img-items {
+    text-align: left;
+    padding-top: 30px;
+}
+
+.img-items img {
+    width: 65%;
+    height: 65%;
+    align-content: center;
+    justify-self: left;
+}
+
+.img-items h5 {
+    color: rgb(255, 64, 0);
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.img-items p {
+    color: rgb(32, 30, 31);
+    margin-top: 5px;
+    font-size: 0.8em;
+}
