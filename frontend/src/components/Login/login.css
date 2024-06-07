@@ -1,0 +1,167 @@
+.login-page {
+    background-color: var(--black);
+    font-family: 'Gill Sans', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    width: auto;
+}
+
+.form-side {
+    background-color: var(--tan);
+    width: 50%;
+    margin: 3vh 1.5vh 3vh 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1;
+}
+
+.image-side {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3vh 3vh 3vh 1.5vh;
+}
+
+.logo img {
+    width: 50%;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 30px auto;
+    padding: 0;
+}
+
+.title {
+    text-align: center;
+    margin: 0 auto 54px auto;
+    line-height: 0;
+    color:var(--orange);
+}
+
+.form {
+    width: 40vh;
+    margin: 0 auto 0vh auto;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    color:var(--orange);
+}
+
+.form input {
+    width: 38.2vh;
+    border: 3px solid var(--orange);
+    padding: 5px 5px 5px 5px;
+    background-color: var(--tan);
+    margin: 4px auto 24px auto;
+    font-size: 15px;
+    color:var(--orange);
+}
+
+.form input:focus {
+    border: 3px solid var(--orange);
+    box-shadow: 3px 4px 5px 3px var(--lightorange) ;
+    outline: none;
+}
+
+::placeholder {
+    color:var(--orange);
+    font-size: 16px;
+}
+
+.forgot-password-link {
+    width: 40vh;
+    text-align: left;
+    margin: 0 auto 16px auto;
+}
+
+.forgot-password-link a {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 550;
+}
+
+.login-signup-buttons {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 40vh;
+    margin: 0 auto 0 auto;
+}
+
+.login-button {
+    width: 11vh;
+    color: var(--orange);
+    text-align: left;
+    margin: 0 0 0 auto;
+}
+
+.login-button button:hover {
+    cursor: pointer;
+    box-shadow: 3px 4px 5px 2px var(--lightorange) ;
+
+}
+
+.login-button button {
+    background-color: var(--orange);
+    color:var(--tan);
+    font-weight: bold;
+    width: 11vh;
+    height: 3.8vh;
+    border: none;
+}
+
+.sign-up-link {
+    width: 29vh;
+    text-align: left;
+    margin: 0 auto 44px 0;
+    font-weight: 550;
+    padding-left: 16px;
+    line-height: 3.8vh;
+}
+
+.sign-up-link a {
+    color: var(--orange);
+    font-weight: 550;
+}
+
+.login-as-header hr {
+    border: 2px solid var(--orange);
+    margin-bottom: 28px;
+}
+
+.login-as-header {
+    width: 40vh;
+    margin: 0 auto 0 auto;
+    text-align: left;
+    line-height: 0;
+    color:var(--orange);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.login-as-body {
+    width: 40vh;
+    margin: 0 auto 0 auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    line-height: 0;
+    font-size: 12px;
+}
+
+h1 {
+    font-size: 18px;
+    line-height: 0;
+}
+
+p {
+    line-height: 0;
+}
+
+a {
+    text-decoration: none;
+}
