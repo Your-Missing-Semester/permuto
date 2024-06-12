@@ -1,12 +1,12 @@
 .nav-bar {
   display: flex;
-  align-items: center;
   justify-content: start;
   background-color: rgb(254, 239, 221);
   padding: 20px;
+  align-content: space-evenly;
 }
 
-.nav-bar-links {
+.nav-bar-link {
   margin-right: 20px;
   color: rgb(32, 30, 31);
   font-size: 0.8em;
