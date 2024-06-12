@@ -1,4 +1,4 @@
-import { Logo, Banner, SignUp, ProductFeatures, Testimonial } from '../../index';
+import { Logo, Banner, HeadlineFeature, ProductFeatures, Testimonial } from '../../index';
 import './body.scss';
 
 function Body() {
@@ -6,7 +6,7 @@ function Body() {
         <div className="body">
             <Logo />
             <Banner />
-            <SignUp />
+            <HeadlineFeature />
             <ProductFeatures />
             <Testimonial />
         </div>

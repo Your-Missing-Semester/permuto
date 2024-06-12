@@ -1,4 +1,4 @@
-import './signup.scss';
+import './headlinefeature.scss';
 
 function SignUp() {
     return (
