@@ -1,7 +1,7 @@
 import styles from './headlinefeature.module.css';
 import { Link } from 'react-router-dom';
 
-function SignUp() {
+function HeadlineFeature() {
     return (
         <div className={styles["sign-up"]}>
             <div className={styles["text-container"]}>
@@ -17,7 +17,7 @@ function SignUp() {
 
                 <div className={styles["sign-up-link"]}>
                     <Link to="/signup">
-                        {/* TODO T11: place sign up link here */}
+                        {/* sign up link */}
                         SIGN UP
                     </Link> 
                 </div>
@@ -31,4 +31,4 @@ function SignUp() {
     )
 }
 
-export default SignUp;
+export default HeadlineFeature;
