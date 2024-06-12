@@ -13,12 +13,12 @@ app.get("/", (req, res) => {
 });
 
 // TODO T32: sign up
-app.post('/sign-up', (req, res) => {
+app.post('/signup', (req, res) => {
 
 });
 
 // TODO T32: log in 
-app.post('/log-in', (req, res) => {
+app.post('/login', (req, res) => {
 
 });
 
