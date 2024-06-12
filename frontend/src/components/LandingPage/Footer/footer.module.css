@@ -1,9 +1,7 @@
 .footer {
-  position: fixed;
+  overflow: hidden;
+  flex: 1;
   display: flex;
-  bottom: 0;
-  left: 0; /* Add this */
-  right: 0; /* Add this */
   justify-content: space-between;
   background-color: rgb(80, 178, 192);
   font-family: 'Gill Sans', sans-serif;
@@ -12,33 +10,34 @@
 }
 
 .left-container {
-  margin-left: 150px;
+  padding-top: 10px;
+  margin-left: 10%;
+  justify-content: space-evenly;
 }
 
 .logo {
-  align-self: center;
-  padding: 5px;
-  width: 100px;
-  height: 50px;
+  width: 80%;
+  height: 40%;
 }
 
 .links {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  padding: 2px;
 }
 
-.left-container p {
-  margin-bottom: 5px;
+.copyright {
+  padding: 2px 0px 2px;
 }
 
 .right-container {
-  margin-right: 150px;
+  padding: 5px 0px 5px;
+  margin-right: 10%;
+  justify-content: space-evenly;
 }
 
 .socials {
-  margin-top: 5px;
+  padding: 2px 0px 2px;
 }
 
 .emails {
-  margin-top: 5px;
+  padding: 0.01px;
 }

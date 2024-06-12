@@ -1,13 +1,12 @@
 import styles from './footer.module.css';
-import { Logo } from '../../index';
 
 function Footer() {
     return (
         <div className={styles.footer}>
             <div className={styles["left-container"]}>
-                <header className={styles.logo}>
-                    <Logo />
-                </header>
+                <div className={styles.logo}>
+                    <img src="" alt="App logo" width="80" height="30" />
+                </div>
 
                 <div className={styles.links}>
                     <a
@@ -27,7 +26,7 @@ function Footer() {
                     </a>    
                 </div>
 
-                <p>
+                <p className={styles.copyright}>
                     Copyright @ 2020 Permuto | All Right Reserved
                 </p>
             </div>
@@ -43,7 +42,7 @@ function Footer() {
                         // TODO T30: place instagram link
                         href="replace"
                     >
-                        <img src="" alt="instagram logo"></img>
+                        <img src="" alt="instagram logo "></img>
                     </a>
 
                     <a
@@ -51,7 +50,7 @@ function Footer() {
                         // TODO T30: place facebook link
                         href="replace"
                     >
-                        <img src="" alt="facebook logo"></img>
+                        <img src="" alt="facebook logo "></img>
                     </a>
 
                     <a
@@ -59,7 +58,7 @@ function Footer() {
                         // TODO T30: place X link
                         href="replace"
                     >
-                        <img src="" alt="X logo"></img>
+                        <img src="" alt="X logo "></img>
                     </a>
                 </div>
 
@@ -68,7 +67,8 @@ function Footer() {
                     <p>
                         Business Inquiries help@permuto.com
                     </p>
-
+                </div>
+                <div className={styles.emails}>
                     <p>
                         Customer Supprt help@permuto.com
                     </p>
