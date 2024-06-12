@@ -5,13 +5,13 @@ function Testimonial() {
         <div className={styles.testimonial}>
             <div className={styles["text-container"]}>
                 {/* TODO T25: header and description */}
-                <h2 className={styles.header}>
+                <div className={styles.header}>
                     Some Text Here
-                </h2>
+                </div>
 
-                <p className={styles.text}>
+                <div className={styles.text}>
                     very very very very very long small texts askfjwoeiu; iapoiwefhsf jsfljwebalkjfakj;lwkej
-                </p>
+                </div>
             </div>
 
             <div className={styles["img-container"]}>
