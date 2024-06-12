@@ -1,0 +1,26 @@
+.testimonial {
+    display: flex;
+}
+
+.text-container {
+    text-align: start;
+    width: 50%;
+    margin-left: 5%;
+}
+
+.header {
+    color: rgb(255, 64, 0);
+    font-size: 2em;
+}
+
+.text {
+    white-space: normal;
+    font-size: 0.8em;
+    color: rgb(32, 30, 31);
+}
+
+.img-container {
+    margin-left: 10%;
+    align-self: center;
+    justify-self: center;
+}
