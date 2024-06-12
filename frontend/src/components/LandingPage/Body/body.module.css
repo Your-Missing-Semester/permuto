@@ -1,0 +1,8 @@
+.body {
+    align-items: center;
+    align-content: start;
+    background-color: rgb(254, 239, 221);
+    font-family: 'Gill Sans', sans-serif;
+    justify-content: center;
+    padding: 5px;
+}
