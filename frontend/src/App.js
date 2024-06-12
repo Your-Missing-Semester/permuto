@@ -1,26 +1,32 @@
-import LandingPage from './pages/LandingPage/landingpage';
 import React from 'react';
+import LandingPage from './pages/LandingPage/landingpage';
+import Login from './components/Login/login';
+import Signup from './components/SignUp/Signup';
 import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    // import landing page
+    element: <LandingPage />
   },
   {
-    path: "/log-in",
-    // import log in form
+    path: "/login",
+    element: <Login />,
   },
   {
-    path: "/sign-up",
-    // import sign up form
+    path: "/signup",
+    element: <Signup />,
+  },
+  {
+    path: "/profile",
+    // import profile
   }
-])
+]);
 
 function App() {
   return (
       <div className="App">
-        <LandingPage />
+        <RouterProvider router={router} />
       </div>
   );
 }
