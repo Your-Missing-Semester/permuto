@@ -1,31 +1,29 @@
 import './navbar.scss';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
     return (
         <div className="nav-bar">
-            <a 
-            // TODO: T26: place home link here
-            href="replace">
+            {/* TODO: T26: place home link here */}
+            <Link to="/"> 
                 HOME
-            </a>
+            </Link>
+
+            {/* TODO: T11: place sign up link here */}
+            <Link to="/signup">
+                SIGN UP 
+            </Link>
             
-            <a 
-            // TODO: T11: place sign up link here
-            href="replace">
-                SIGN IN
-            </a>
             
-            <a 
-            // TODO: T10: place log in link here
-            href="replace">
+            {/* TODO: T10: place log in link here */} 
+            < Link to="/login">
                 LOG IN
-            </a>
+            </Link>
             
-            <a 
-            // TODO: T27: place about link here
-            href="replace">
+            {/* TODO: T27: place about link here */}
+            < Link to="">
                 ABOUT
-            </a>    
+            </Link>   
         </div>
     );
 }
