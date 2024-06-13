@@ -1,0 +1,38 @@
+.sign-up {
+  align-items: center;
+  display: flex;
+}
+
+.text-container {
+  margin-left: 5%;
+  text-align: start;
+  width: 50%;
+}
+  
+.header {
+  white-space: normal;
+  font-size: 2.0em;
+  color: rgb(255, 64, 0);
+}
+  
+.text {
+  white-space: normal;
+  font-size: 0.8em;
+  color: rgb(32, 30, 31);
+  width: 70%;
+  padding: 10px 0px;
+}
+
+.sign-up-link {
+  font-style: bold;
+  font-size: 15px;
+  color: rgb(254, 239, 221);
+  margin: 10px 0;
+  width: 10%;
+}
+
+.img-container {
+  margin-left: 10%;
+  align-self: center;
+  justify-self: center;
+}  

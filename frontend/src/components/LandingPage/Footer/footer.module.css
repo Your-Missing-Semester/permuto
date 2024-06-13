@@ -1,0 +1,43 @@
+.footer {
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(80, 178, 192);
+  font-family: 'Gill Sans', sans-serif;
+  font-size: 0.8em;
+  color: rgb(32, 30, 31);
+}
+
+.left-container {
+  padding-top: 10px;
+  margin-left: 10%;
+  justify-content: space-evenly;
+}
+
+.logo {
+  width: 80%;
+  height: 40%;
+}
+
+.links {
+  padding: 2px;
+}
+
+.copyright {
+  padding: 2px 0px 2px;
+}
+
+.right-container {
+  padding: 5px 0px 5px;
+  margin-right: 10%;
+  justify-content: space-evenly;
+}
+
+.socials {
+  padding: 2px 0px 2px;
+}
+
+.emails {
+  padding: 0.01px;
+}

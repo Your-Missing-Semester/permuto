@@ -1,20 +1,20 @@
-import './testimonial.scss'
+import styles from './testimonial.module.css'
 
 function Testimonial() {
     return (
-        <div className="testimonial">
-            <div className="text-container">
+        <div className={styles.testimonial}>
+            <div className={styles["text-container"]}>
                 {/* TODO T25: header and description */}
-                <h2>
+                <div className={styles.header}>
                     Some Text Here
-                </h2>
+                </div>
 
-                <p>
+                <div className={styles.text}>
                     very very very very very long small texts askfjwoeiu; iapoiwefhsf jsfljwebalkjfakj;lwkej
-                </p>
+                </div>
             </div>
 
-            <div className="img-container">
+            <div className={styles["img-container"]}>
                 {/* TODO T24: replace image */}
                 <img src="" alt="Person enjoying this app." width="150" height="90"/>
             </div>
