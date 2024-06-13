@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 
 const app = express();
+const axios= require("axios");
 
 app.use(cors({
     origin: 'http://localhost:3000',
