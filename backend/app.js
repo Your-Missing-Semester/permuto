@@ -15,17 +15,17 @@ app.get("/", (req, res) => {
 
 // TODO T32: sign up
 app.post('/signup', (req, res) => {
-
+    res.status(200).send("Signup endpoint under construction.");
 });
 
 // TODO T32: log in 
 app.post('/login', (req, res) => {
-
+    res.status(200).send("Login endpoint under construction.");
 });
 
 // TODO T32: profile 
 app.post('/profile', (req, res) => {
-
+    res.status(200).send("Profile endpoint under construction.");
 });
 
 export default app;
