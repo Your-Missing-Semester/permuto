@@ -1,32 +1,35 @@
-import React from 'react'
-import './login.css'
-import Logo_orange_tan from '../Assets/logoOrangeTan.svg'
-import Logo_orange from '../Assets/logoOrangeBlack.svg'
+import React, { useEffect, useState } from 'react';
+import styles from './login.module.css';
+import './login.module.css';
+import Logo_orange_tan from '../Assets/logoOrangeTan.svg';
+import Logo_orange from '../Assets/logoOrangeBlack.svg';
+import { Link } from 'react-router-dom';
 
-const LoginForm = () => {
-    const [email, setEmail] = React.useState('');
-    const [password, setPassword] = React.useState('');
+export const LoginForm = () => {
+    const [email, setEmail] = useState([]);
+    const [password, setPassword] = useState([]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        const loginInfo = {email, password}
+        const loginInfo = {email, password};
     }
 
     return (
-        <div className="login-page">
-            <div className='form-side'>
-                <div className="header">  
-                    <header className="logo">
+        <div className={styles["login-page"]}>
+            <div className={styles['form-side']}>
+                <div className={styles["header"]}>  
+                    <header className={styles["logo"]}>
                         <img src={Logo_orange} alt="Permuto Logo"/>
                     </header>
         
-                    <div className="title">
+                    <div className={styles["title"]}>
                         <h1>SIGN IN</h1>
                     </div>
 
                 </div>
 
                 <form onSubmit={handleSubmit}>
-                    <div className='form'>
+                    <div className={styles['form']}>
                         <label htmlFor="">EMAIL</label><br />
                         <input 
                         type="text"
@@ -42,27 +45,27 @@ const LoginForm = () => {
                         onChange={(e) => setPassword(e.target.value)}/><br />
                     </div>
 
-                    <div className='forgot-password-link'>
-                        <a href="">Forgot password?</a>           {/*TODO (T10): replace with correct link*/}
+                    <div className={styles['forgot-password']}>
+                        <Link to="" className={styles['forgot-password-link']}>Forgot password?</Link>        {/*TODO (T10): replace with path*/}
                     </div>
 
-                    <div className='login-signup-buttons'>
-                        <div className='login-button'> 
+                    <div className={styles['login-signup-buttons']}>
+                        <div className={styles['login-button']}> 
                             <button>LOGIN</button>
                         </div>
 
-                        <div className='sign-up-link'>
-                            <a href="">SIGN UP</a>                        {/*TODO (T10): replace with correct link*/}
+                        <div className={styles['sign-up']}>
+                            <Link to="/signup" className={styles['sign-up-link']}> SIGN UP</Link>                           {/*TODO (T10): replace with correct link*/}
                         </div>
                     </div>
 
                 </form>
                 
-                <div className='login-as-header'>
+                <div className={styles['login-as-header']}>
                     <hr />
                     <p>LOGIN [AS]</p>
                 </div>
-                <div className='login-as-body'>
+                <div className={styles['login-as-body']}>
                     <p>[placeholder]</p>
                     <p>[placeholder]</p>
                     <p>[placeholder]</p>
@@ -70,7 +73,7 @@ const LoginForm = () => {
                 </div>
             </div>
 
-            <div className="image-side">
+            <div className={styles["image-side"]}>
                 <img src={Logo_orange_tan} alt="Permuto Skill Exchanging" />
             </div>
 
@@ -78,6 +81,3 @@ const LoginForm = () => {
 
     )
 }
-
-
-export default LoginForm
