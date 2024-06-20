@@ -13,10 +13,9 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
-// TODO T32: sign up
+app.use(bodyParser.json());
+
 app.post('/signup', (req, res) => {
-    app.use(bodyParser.json());
-    
     const email = req.body.email;
     const password = req.body.password
     const confirmPassword = req.body.confirmPassword
