@@ -21,12 +21,12 @@ const ChangeUsername = () => {
             <div className={styles["change-input"]}>
                 <label>Enter new username:</label>
                 <input className= {styles["user-input"]}
-                type="text"
-                name="new-user"
-                placeholder="New username"
-                value={newUsername}
-                onChange={(e) => setNewUsername(e.target.value)}
-                required
+                    type="text"
+                    name="new-user"
+                    placeholder="New username"
+                    value={newUsername}
+                    onChange={(e) => setNewUsername(e.target.value)}
+                    required
                 />
             </div>
 
