@@ -1,0 +1,154 @@
+.profile-page {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(254, 239, 221);
+}
+
+.nav-bar {
+    display: flex;
+    align-content: space-around;
+    align-items: center;
+    justify-items: start;
+    padding-left: 1%;
+}
+
+.profile-details {
+    align-content: center;
+    justify-content: start;
+    display: flex;
+    padding-top: 2%;
+    padding-left: 10%;
+}
+
+.profile {
+    width: 25%;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    border: solid rgb(250, 170, 141);
+    padding: 2%;
+    text-align: center;
+    line-height: 300px;
+}
+
+.user-name {
+    justify-self: center;
+    padding-left: 10%;
+    margin-top: 10%;
+    font-size: 25px;
+}
+
+.user-info {
+    width: 50%;
+    justify-self: start;
+    margin-left: 10%;
+}
+
+.status-header {
+    font-size: 25px;
+    color: rgb(24, 24, 24);
+}
+
+.status-description {
+    border: thick double rgb(250, 170, 141);
+    border-radius: 25px;
+    font-size: 20px;
+}
+
+.text {
+    padding: 2%;
+    word-wrap: break-word;
+}
+
+.info {
+    display: flex;
+    margin-top: 3%;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.contact {
+    width: 15%;
+}
+
+.contact-button {
+    border-radius: 25px;
+    width: 100%;
+    padding-bottom: 3%;
+    background-color: rgb(250, 170, 141);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.reviews {
+    margin-left: 30%;
+    margin-right: 20%;
+}
+
+.skills {
+    display: flex;
+    margin-top: 2%;
+    padding-left: 10%;
+}
+
+.skills-header {
+    font-size: 20px;
+}
+
+.skills-detail {
+    width: 25%;
+}
+
+.mini-skills-info {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 25px;
+    align-items: center;
+}
+
+.skill-name {
+    width: 50%;
+    margin: 3% 5% 3%;
+}
+
+.years-of-experience {
+    width: 20%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.proof-of-skills {
+    width: 50%;
+    justify-self: start;
+    margin-left: 10%;
+}
+
+.proof-header {
+    font-size: 20px;
+}
+
+.proof-info {
+    border: thick double rgb(250, 170, 141);
+    padding: 1% 3% 1%;
+    border-radius: 25px;
+}
+
+.skill {
+    font-size: 20px;
+}
+
+.images-and-description {
+    align-content: start;
+    justify-content: start;
+}
+
+.skill-description {
+    font-size: 20px;
+}
