@@ -13,9 +13,18 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
-// TODO T32: sign up
+app.use(bodyParser.json());
+
 app.post('/signup', (req, res) => {
-    res.status(200).send("Signup endpoint under construction.");
+    const email = req.body.email;
+    const password = req.body.password
+    const confirmPassword = req.body.confirmPassword
+
+    if (password !== passwordConfirm) {
+        return res.send('Passwords do not match!');
+    }
+
+    res.send('Received POST request')
 });
 
 // TODO T32: log in 
