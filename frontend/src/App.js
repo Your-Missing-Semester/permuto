@@ -2,7 +2,7 @@ import React from 'react';
 import LandingPage from './pages/LandingPage/landingpage';
 import Login from './components/Login/login';
 import Signup from './components/SignUp/Signup';
-import Profile from './components/Profile/profile';
+import Profile from './components/Profile/Profile';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
