@@ -37,4 +37,23 @@ app.post('/profile', (req, res) => {
     res.status(200).send("Profile endpoint under construction.");
 });
 
+app.post('/reset-password', async (req, res) => {
+    try {
+        const { email, newPassword } = req.body;
+
+        db.get("SELECT * FROM users WHERE email = ?", [email], async (err, user) => {
+            if (err) {
+                return res.status(500).send("Internal Server Error");
+            }
+            if (!user) {
+                throw new Error("An account does not exist with this email.");
+            } else {
+                // TODO
+            }
+        })
+    } catch (error) {
+        res.status(400).send("Error:", error.message)
+    }
+});
+
 export default app;
