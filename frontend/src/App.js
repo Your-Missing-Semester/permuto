@@ -1,8 +1,9 @@
 import React from 'react';
 import LandingPage from './pages/LandingPage/landingpage';
 import Login from './components/Login/login';
-import Signup from './components/SignUp/Signup';
+import Signup from './components/Signup/Signup';
 import Profile from './components/Profile/Profile';
+import ChangeUsername from './components/ChangeUsername/changeusername';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />,
+  },
+  {
+    path: "/changeUsername",
+    element:<ChangeUsername />,
   }
 ]);
 
