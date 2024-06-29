@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-
-const prisma = require('./db/db');
+import prisma from './db/db'
 
 const app = express();
 const axios= require("axios");
