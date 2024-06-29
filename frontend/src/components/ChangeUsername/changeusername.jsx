@@ -1,12 +1,15 @@
 import React, {useState} from 'react'
-import styles from './changeusername.module.css'
+import styles from './changeUsername.module.css'
+import axios from 'axios'
 
 const ChangeUsername = () => {
     const [newUsername, setNewUsername] = useState('');
 
-    const handleSubmit = (event) =>{
+    const handleSubmit = async (event) =>{
         event.preventDefault();
-
+        const response = await axios.post('/changeUsername', {
+            newUsername
+          });
         alert('Username has been changed!');
     }
 

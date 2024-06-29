@@ -2,30 +2,35 @@ import express from 'express';
 import cors from 'cors';
 
 const app = express();
-const axios= require("axios");
 
 app.use(cors({
     origin: 'http://localhost:3000',
     credentials: true
 }));
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.get("/", (req, res) => {
     res.send("Hello World!");
 });
-
-app.use(bodyParser.json());
 
 app.post('/signup', (req, res) => {
     const email = req.body.email;
     const password = req.body.password
     const confirmPassword = req.body.confirmPassword
 
-    if (password !== passwordConfirm) {
+    if (password !== confirmPassword) {
         return res.send('Passwords do not match!');
     }
 
     res.send('Received POST request')
 });
+
+app.post('/changeUsername', (req, res) => {
+    const newUsername = req.body.newUsername
+    res.send('Changed your username to: ' + newUsername);
+})
 
 // TODO T32: log in 
 app.post('/login', (req, res) => {
