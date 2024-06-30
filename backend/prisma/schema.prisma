@@ -23,7 +23,8 @@ model Profile {
   stars           Int
   location        String
   description     String
-  user            User?
+  user            User @relation(fields: [userId], references: [id])
+  userId        String @unique
   skills          Skill[]
 }
 
