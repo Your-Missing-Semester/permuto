@@ -15,7 +15,7 @@ model User {
   email           String      @unique
   username        String
   password        String
-  profile Profile?
+  profile         Profile?
 }
 
 model Profile {
@@ -23,8 +23,8 @@ model Profile {
   stars           Int
   location        String
   description     String
-  user            User @relation(fields: [userId], references: [id])
-  userId        String @unique
+  user            User        @relation(fields: [userId], references: [id])
+  userId          String      @unique
   skills          Skill[]
 }
 
