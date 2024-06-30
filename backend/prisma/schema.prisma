@@ -11,27 +11,26 @@ datasource db {
 }
 
 model User {
-  id        Int     @id @default(autoincrement())
-  email     String  @unique
-  username  String
-  password  String
-  posts     Post[]
-  skills    Skill[]
+  id              String      @id @default(uuid())
+  email           String      @unique
+  username        String
+  password        String
+  profile         Profile     @relation(fields: [profileId], references: [id])
+  profileId       String      @unique
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
+model Profile {
+  id              String      @id @default(uuid())
+  stars           Int
+  location        String
+  description     String
+  user            User?
+  skills          Skill[]
 }
 
 model Skill {
-  id          Int   @id @default(autoincrement())
-  username    String
-  description String?
-  author      User    @relation(fields: [authorId], references: [id])
-  authorId    Int
+  id              Int         @id @default(autoincrement())
+  description     String?
+  profile         Profile     @relation(fields: [profileId], references: [id])
+  profileId       String
 }
