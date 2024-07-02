@@ -43,7 +43,10 @@ app.post('/profile', (req, res) => {
     res.status(200).send("Profile endpoint under construction.");
 });
 
-app.post('/reset-password', async (req, res) => {
+app.get('/reset-password/:username', async (req, res) => {
+    const { username } = req.params;
+    const newPassword = req.body;
+    
     try {
         const { email, newPassword } = req.body;
 
