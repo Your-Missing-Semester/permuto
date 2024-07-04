@@ -3,7 +3,7 @@ import LandingPage from './pages/LandingPage/landingpage';
 import Login from './components/Login/login';
 import Signup from './components/SignUp/Signup';
 import Profile from './components/Profile/Profile';
-import ChangeUsername from './components/ChangeUsername/changeUsername';
+import ChangeUsername from './components/ChangeUsername/changeusername';
 import ResetPassword from './components/ResetPassword/resetpassword';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
