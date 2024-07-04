@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import prisma from './db/db'
+import * as authMiddleware from "./authMiddleware.js" 
 
 const app = express();
 
@@ -11,6 +12,16 @@ app.use(cors({
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+var session = require('express-session');
+
+app.use(session({
+    secret: "not sure what to put here",
+    resave: true,
+    saveUninitialized: false,
+}));
+
+app.use(authMiddleware);
 
 app.get("/", (req, res) => {
     res.send("Hello World!");
