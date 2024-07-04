@@ -44,24 +44,30 @@ app.post('/profile', (req, res) => {
 });
 
 app.get('/reset-password/:username', async (req, res) => {
-    const { username } = req.params;
-    const newPassword = req.body;
-    
     try {
-        const { email, newPassword } = req.body;
+        const { username } = req.params;
+        const { newPassword } = req.body;
+        
+        const userInfo = await prisma.user.findUnique({
+            where: { username: username },
+        });
 
-        db.get("SELECT * FROM users WHERE email = ?", [email], async (err, user) => {
-            if (err) {
-                return res.status(500).send("Internal Server Error");
-            }
-            if (!user) {
-                throw new Error("An account does not exist with this email.");
-            } else {
-                // TODO
-            }
-        })
+        if (!user) {
+            throw new Error("An account does not exist with this email.");
+        } 
+
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+        await prisma.user.update({
+            where: { username: username },
+            data: { password: hashedPassword },
+        });
+
+        res.send("Password Reset Successful.");
+
     } catch (error) {
-        res.status(400).send("Error:", error.message)
+    res.status(400).send("Error:", error.message)
     }
 });
 
