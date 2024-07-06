@@ -47,14 +47,14 @@ app.get('/reset-password/:username', async (req, res) => {
     try {
         const { username } = req.params;
         const { newPassword } = req.body;
-        
+
+        if (!username) {
+            throw new Error("Please log in to reset password");
+        };
+
         const userInfo = await prisma.user.findUnique({
             where: { username: username },
         });
-
-        if (!user) {
-            throw new Error("An account does not exist with this email.");
-        } 
 
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(newPassword, salt);
