@@ -44,15 +44,15 @@ app.post('/signup', (req, res) => {
     res.send('Received POST request')
 });
 
-app.post('/changeUsername', (req, res) => {
-    const newUsername = req.body.newUsername
-    res.send('Changed your username to: ' + newUsername);
-})
-
 // TODO T32: log in 
 app.post('/login', (req, res) => {
     res.status(200).send("Login endpoint under construction.");
 });
+
+app.post('/changeUsername', (req, res) => {
+    const newUsername = req.body.newUsername
+    res.send('Changed your username to: ' + newUsername);
+})
 
 // TODO T32: profile 
 app.post('/profile', (req, res) => {
