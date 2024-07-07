@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import prisma from './db/db'
+import bcrypt from 'bcrypt'
 
 const app = express();
 
@@ -16,16 +17,34 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
-app.post('/signup', (req, res) => {
-    const email = req.body.email;
-    const password = req.body.password
-    const confirmPassword = req.body.confirmPassword
+app.post('/signup', async (req, res) => {
+    const {email, username, password, confirmPassword} = req.body
 
     if (password !== confirmPassword) {
         return res.send('Passwords do not match!');
     }
+    
+    const checkUser = await prisma.user.findFirst({
+        where: {
+            email: email
+        }
+    })
 
-    res.send('Received POST request')
+    if(checkUser){
+        return res.send('User already exists.')
+    }
+
+    const hashedPassword = bcrypt.hashSync(password, 10)
+
+    const newUser = await prisma.user.create({
+        data: {
+            email: email,
+            username: username,
+            password: hashedPassword
+        }
+    })
+
+    res.send('New user registered!')
 });
 
 app.post('/changeUsername', (req, res) => {
