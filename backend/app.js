@@ -1,9 +1,12 @@
 import express from 'express';
 import cors from 'cors';
 import prisma from './db/db'
-import * as authMiddleware from "./authMiddleware.js" 
 
 const app = express();
+
+const session = require('express-session');
+const { PrismaSessionStore } = require('@quixo3/prisma-session-store');
+const { PrismaClient } = require('@prisma/client');
 
 app.use(cors({
     origin: 'http://localhost:3000',
@@ -13,15 +16,17 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-var session = require('express-session');
+app.use((req, res, next) => {
+    console.log(`${req.method}:${req.url}`);
+    next();
+})
 
 app.use(session({
-    secret: "not sure what to put here",
+    secret: "RANDOMSECRETNOONEWILLKNOW",
     resave: true,
     saveUninitialized: false,
 }));
 
-app.use(authMiddleware);
 
 app.get("/", (req, res) => {
     res.send("Hello World!");
