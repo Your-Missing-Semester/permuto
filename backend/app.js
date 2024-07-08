@@ -16,17 +16,26 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use((req, res, next) => {
-    console.log(`${req.method}:${req.url}`);
-    next();
-})
-
 app.use(session({
-    secret: "RANDOMSECRETNOONEWILLKNOW",
-    resave: true,
-    saveUninitialized: false,
+    cookie: {
+        maxAge: 7 * 24 * 60 * 60 * 1000,  //ms -> 7 days
+    },
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true },
+    store: new PrismaSessionStore(new PrismaClient(), {
+        checkPeriod: 60 * 1000, //ms -> 60 seconds
+        dbRecordIdIsSessionId: true,
+        dbRecordIdFunction: undefined,
+    })
 }));
 
+app.use((req, res, next) => {
+    console.log(PrismaSessionStore);
+    console.log(`${req.method}:${req.url}`);
+    next();
+});
 
 app.get("/", (req, res) => {
     res.send("Hello World!");
@@ -47,6 +56,22 @@ app.post('/signup', (req, res) => {
 // TODO T32: log in 
 app.post('/login', (req, res) => {
     res.status(200).send("Login endpoint under construction.");
+});
+
+app.use(async (req, res, next) => {
+    if (req.session.userId) {
+        const user = await prisma.user.findUnique({
+            where: {
+                id: req.session.userId
+            }
+        });
+        if (user) {
+            req.user = user;
+            next();
+        } 
+    } else {
+        res.status(401).send('Unauthorized');
+    }
 });
 
 app.post('/changeUsername', (req, res) => {
