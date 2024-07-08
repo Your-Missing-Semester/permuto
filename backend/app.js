@@ -43,31 +43,32 @@ app.post('/profile', (req, res) => {
     res.status(200).send("Profile endpoint under construction.");
 });
 
-app.get('/reset-password/:username', async (req, res) => {
+app.put('/reset-password/:userId', async (req, res) => {
     try {
-        const { username } = req.params;
+        const { userId } = req.params;
         const { newPassword } = req.body;
 
-        if (!username) {
+        if (!userId) {
             throw new Error("Please log in to reset password");
         };
 
         const userInfo = await prisma.user.findUnique({
-            where: { username: username },
+            where: { userId },
         });
 
-        const salt = await bcrypt.genSalt(10);
+        const saltRounds = 10;
+        const salt = await bcrypt.genSalt(saltRounds);
         const hashedPassword = await bcrypt.hash(newPassword, salt);
 
         await prisma.user.update({
-            where: { username: username },
+            where: { userId },
             data: { password: hashedPassword },
         });
 
         res.send("Password Reset Successful.");
 
     } catch (error) {
-    res.status(400).send("Error:", error.message)
+        console.error("Error:", error.message)
     }
 });
 
