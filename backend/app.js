@@ -24,17 +24,18 @@ app.post('/signup', async (req, res) => {
         return res.send('Passwords do not match!');
     }
     
-    const checkUser = await prisma.user.findFirst({
+    const existingUser = await prisma.user.findFirst({
         where: {
             email: email
         }
     })
 
-    if(checkUser){
-        return res.send('User already exists.')
+    if(existingUser){
+        return res.status(400).send('User already exists.')
     }
 
-    const hashedPassword = bcrypt.hashSync(password, 10)
+    const saltRounds = 10
+    const hashedPassword = bcrypt.hashSync(password, saltRounds)
 
     const newUser = await prisma.user.create({
         data: {
