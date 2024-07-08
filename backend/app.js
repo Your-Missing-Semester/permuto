@@ -68,7 +68,7 @@ app.put('/reset-password/:userId', async (req, res) => {
         res.send("Password Reset Successful.");
 
     } catch (error) {
-        console.error("Error:", error.message)
+        console.error("Error resetting password:", error.message)
     }
 });
 
