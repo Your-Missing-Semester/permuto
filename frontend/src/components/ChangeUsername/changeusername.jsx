@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import styles from './changeusername.module.css'
+import styles from './changeUsername.module.css'
 import axios from 'axios'
 
 const ChangeUsername = () => {
