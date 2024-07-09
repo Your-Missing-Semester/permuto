@@ -56,6 +56,10 @@ app.put('/reset-password/:userId', async (req, res) => {
         const userInfo = await prisma.user.findUnique({
             where: { userId },
         });
+        
+        if (!userInfo) {
+            return res.send("Cannot find user.")
+        };
 
         const saltRounds = 10;
         const salt = await bcrypt.genSalt(saltRounds);
@@ -69,8 +73,8 @@ app.put('/reset-password/:userId', async (req, res) => {
         res.send("Password Reset Successful.");
 
     } catch (error) {
-        console.error("Error resetting password:", error.message);
-        res.status(500).send("")
+        console.error("Error resetting password");
+        res.send("Error resetting password, try again.", error.message);
     }
 });
 
