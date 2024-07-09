@@ -43,6 +43,7 @@ app.post('/profile', (req, res) => {
     res.status(200).send("Profile endpoint under construction.");
 });
 
+// eventually read off session instead of userId in params
 app.put('/reset-password/:userId', async (req, res) => {
     try {
         const { userId } = req.params;
@@ -68,7 +69,8 @@ app.put('/reset-password/:userId', async (req, res) => {
         res.send("Password Reset Successful.");
 
     } catch (error) {
-        console.error("Error resetting password:", error.message)
+        console.error("Error resetting password:", error.message);
+        res.status(500).send("")
     }
 });
 
