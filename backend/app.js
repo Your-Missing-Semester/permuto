@@ -70,7 +70,7 @@ app.put('/reset-password/:userId', async (req, res) => {
         const { newPassword } = req.body;
 
         if (userId == ':userId') {
-            console.log("Empty userId param.");
+            console.error("Empty userId param.");
             return res.status(400).send("Please log in first.");
         };
 
@@ -79,7 +79,7 @@ app.put('/reset-password/:userId', async (req, res) => {
         });
         
         if (!userInfo) {
-            console.log("No user found.");
+            console.error("No user found.");
             return res.status(500).send("Cannot find existing user.");
         };
 
