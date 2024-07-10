@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import prisma from './db/db.js'
+import bcrypt from 'bcrypt'
 
 const app = express();
 
@@ -49,16 +50,18 @@ app.put('/reset-password/:userId', async (req, res) => {
         const { userId } = req.params;
         const { newPassword } = req.body;
 
-        if (!userId) {
-            throw new Error("Please log in to reset password");
+        if (userId == ':userId') {
+            console.log("Empty userId param.");
+            return res.status(400).send("Please log in first.");
         };
 
         const userInfo = await prisma.user.findUnique({
-            where: { userId },
+            where: { id: userId },
         });
         
         if (!userInfo) {
-            return res.send("Cannot find user.")
+            console.log("No user found.");
+            return res.status(500).send("Cannot find existing user.");
         };
 
         const saltRounds = 10;
@@ -66,15 +69,15 @@ app.put('/reset-password/:userId', async (req, res) => {
         const hashedPassword = await bcrypt.hash(newPassword, salt);
 
         await prisma.user.update({
-            where: { userId },
+            where: { id: userId },
             data: { password: hashedPassword },
         });
 
         res.send("Password Reset Successful.");
 
     } catch (error) {
-        console.error("Error resetting password");
-        res.send("Error resetting password, try again.", error.message);
+        console.error("Error resetting password", error);
+        res.status(500).send("Error resetting password, try again.");
     }
 });
 
