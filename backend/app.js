@@ -18,13 +18,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
-    cookie: {
-        maxAge: 7 * 24 * 60 * 60 * 1000,  //ms -> 7 days
-    },
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true },
+    cookie: { 
+        secure: true,
+        maxAge: 7 * 24 * 60 * 60 * 1000,  //ms -> 7 days
+    },
     store: new PrismaSessionStore(new PrismaClient(), {
         checkPeriod: 60 * 1000, //ms -> 60 seconds
         dbRecordIdIsSessionId: true,
@@ -79,10 +79,10 @@ app.post('/login', (req, res) => {
 });
 
 app.use(async (req, res, next) => {
-    if (req.session.userId) {
-        const user = await prisma.user.findUnique({
+    if (req.session.sid) {
+        const user = await prisma.session.findUnique({
             where: {
-                id: req.session.userId
+                sid: req.session.sid
             }
         });
         if (user) {
