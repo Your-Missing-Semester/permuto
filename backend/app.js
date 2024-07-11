@@ -74,6 +74,11 @@ app.patch('/reset-password/:userId', async (req, res) => {
             return res.status(400).send("Please log in first.");
         };
 
+        if (!newPassword) {
+            console.error("Empty password param.");
+            return res.status(400).send("Please enter a valid password.");
+        };
+
         const userInfo = await prisma.user.findUnique({
             where: { id: userId },
         });
@@ -92,7 +97,10 @@ app.patch('/reset-password/:userId', async (req, res) => {
             data: { password: hashedPassword },
         });
 
-        res.send("Password Reset Successful.");
+        res.status(200).json({
+            message: "Password Reset Successful.",
+            success: true
+        });
 
     } catch (error) {
         console.error("Error resetting password", error);
