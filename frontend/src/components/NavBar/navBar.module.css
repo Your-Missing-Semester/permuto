@@ -1,0 +1,45 @@
+.nav-bar {
+    position: fixed;
+    width: 320px;
+    height: 1024px;
+    justify-content: left;
+    background-color:#FF4000;
+    transform: translate(-250%, -45%);
+    /* there are a couple conflicting body styles I didn't wanna touch 
+    bc it messed up the formatting of a bunch of other pages so I transformed
+    instead but is there a way they can be fixed? */
+}
+
+.routes{
+    vertical-align: bottom;
+    padding-right: 58px;
+    padding-bottom: 58px;
+    padding-left: 58px;
+    transform: translateY(305%);
+}
+
+.route-list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.route-list li{
+    font-size: 16px;
+    padding-top: 7%;
+}
+
+.link-styles {
+    color: #FEEFDD;
+    font-weight: bold;
+}
+
+.link-styles:hover{
+    color: #FAAA8D;
+    text-decoration: underline 2px;
+}
+
+
+
+
+

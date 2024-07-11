@@ -4,7 +4,8 @@ import Login from './components/Login/login';
 import Signup from './components/SignUp/Signup';
 import Profile from './components/Profile/Profile';
 import ChangeUsername from './components/ChangeUsername/changeUsername';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import NavBar from './components/NavBar/navBar';
+import { BrowserRouter, createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
   {
     path: "/changeUsername",
     element:<ChangeUsername />,
+  },
+  // Added this to see what it looked like --> delete later
+  {
+    path: "/navBar",
+    element:<NavBar />,
   }
 ]);
 
