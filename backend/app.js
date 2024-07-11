@@ -64,7 +64,7 @@ app.post('/profile', (req, res) => {
 });
 
 // eventually read off session instead of userId in params
-app.put('/reset-password/:userId', async (req, res) => {
+app.patch('/reset-password/:userId', async (req, res) => {
     try {
         const { userId } = req.params;
         const { newPassword } = req.body;
