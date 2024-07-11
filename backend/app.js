@@ -2,12 +2,12 @@ import express from 'express';
 import cors from 'cors';
 import prisma from './db/db.js'
 import bcrypt from 'bcrypt'
+import 'dotenv/config';
+import expressSession from 'express-session';
+import { PrismaSessionStore } from '@quixo3/prisma-session-store';
+import  { PrismaClient } from '@prisma/client';
 
 const app = express();
-
-const session = require('express-session');
-const { PrismaSessionStore } = require('@quixo3/prisma-session-store');
-const { PrismaClient } = require('@prisma/client');
 
 app.use(cors({
     origin: 'http://localhost:3000',
@@ -17,7 +17,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(session({
+app.use(expressSession({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
