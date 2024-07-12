@@ -6,6 +6,7 @@ import 'dotenv/config';
 import session from 'express-session';
 import { PrismaSessionStore } from '@quixo3/prisma-session-store';
 import  { PrismaClient } from '@prisma/client';
+import checkAuth from './middleware/checkAuth.js';
 
 const app = express();
 
@@ -78,42 +79,18 @@ app.post('/login', (req, res) => {
     res.status(200).send("Login endpoint under construction.");
 });
 
-app.use(async (req, res, next) => {
-    if (req.session.sid) {
-        const userSession = await prisma.session.findFirst({
-            where: { sid: req.session.sid }, 
-        });
-
-        if (userSession) {
-            console.log("")
-            res.status(200).json({
-                message: "Success",
-                success: true
-            })
-            return next();
-        } else {
-            console.error("Cannot find user session.");
-            return res.status(500).send("Please log in.");
-        };
-    } else {
-        console.error("Please log in")
-        res.status(400).send('Unauthorized');
-        res.redirect('/login');
-    }
-});
-
-app.post('/changeUsername', (req, res) => {
+app.post('/changeUsername', checkAuth, (req, res) => {
     const newUsername = req.body.newUsername
     res.send('Changed your username to: ' + newUsername);
 })
 
 // TODO T32: profile 
-app.post('/profile', (req, res) => {
+app.post('/profile', checkAuth, (req, res) => {
     res.status(200).send("Profile endpoint under construction.");
 });
 
 // eventually read off session instead of userId in params
-app.patch('/reset-password/:userId', async (req, res) => {
+app.patch('/reset-password/:userId', checkAuth, async (req, res) => {
     try {
         const { userId } = req.params;
         const { newPassword } = req.body;
