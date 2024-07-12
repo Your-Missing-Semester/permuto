@@ -1,5 +1,4 @@
 const checkAuth = async (req, res, next) => {
-    console.log("SID", req.session.sid);
     if (req.session.sid) {
         const userSession = await prisma.session.findFirst({
             where: { sid: req.session.sid }, 
