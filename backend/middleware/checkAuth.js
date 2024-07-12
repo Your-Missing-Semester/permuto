@@ -14,7 +14,7 @@ const checkAuth = async (req, res, next) => {
             return next();
         } else {
             console.error("Cannot find user session.");
-            return res.status(500).send("Please log in..");
+            return res.status(500).send("Please try again.");
         };
     } else {
         console.error("Unauthorized. Please log in.");
