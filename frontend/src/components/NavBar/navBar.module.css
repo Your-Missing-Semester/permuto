@@ -4,18 +4,18 @@
     height: 1024px;
     justify-content: left;
     background-color:#FF4000;
-    transform: translate(-250%, -45%);
-    /* there are a couple conflicting body styles I didn't wanna touch 
-    bc it messed up the formatting of a bunch of other pages so I transformed
-    instead but is there a way they can be fixed? */
+    top:0;
+    left:0;
 }
 
 .routes{
+    position: fixed;
     vertical-align: bottom;
     padding-right: 58px;
     padding-bottom: 58px;
     padding-left: 58px;
-    transform: translateY(305%);
+    bottom:0;
+    left:0;
 }
 
 .route-list{
