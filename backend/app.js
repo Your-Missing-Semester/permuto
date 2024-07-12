@@ -3,7 +3,7 @@ import cors from 'cors';
 import prisma from './db/db.js'
 import bcrypt from 'bcrypt'
 import 'dotenv/config';
-import expressSession from 'express-session';
+import session from 'express-session';
 import { PrismaSessionStore } from '@quixo3/prisma-session-store';
 import  { PrismaClient } from '@prisma/client';
 
@@ -17,7 +17,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(expressSession({
+app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
@@ -80,17 +80,25 @@ app.post('/login', (req, res) => {
 
 app.use(async (req, res, next) => {
     if (req.session.sid) {
-        const user = await prisma.session.findUnique({
-            where: {
-                sid: req.session.sid
-            }
+        const userSession = await prisma.session.findFirst({
+            where: { sid: req.session.sid }, 
         });
-        if (user) {
-            req.user = user;
-            next();
-        } 
+
+        if (userSession) {
+            console.log("")
+            res.status(200).json({
+                message: "Success",
+                success: true
+            })
+            return next();
+        } else {
+            console.error("Cannot find user session.");
+            return res.status(500).send("Please log in.");
+        };
     } else {
-        res.status(401).send('Unauthorized');
+        console.error("Please log in")
+        res.status(400).send('Unauthorized');
+        res.redirect('/login');
     }
 });
 
