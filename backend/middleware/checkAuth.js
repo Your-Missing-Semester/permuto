@@ -1,15 +1,15 @@
+import prisma from '../db/db.js';
+
 const checkAuth = async (req, res, next) => {
-    if (req.session.sid) {
+    console.log("In checkAuth");
+    if (req.session.id) {
         const userSession = await prisma.session.findFirst({
-            where: { sid: req.session.sid }, 
+            where: { id: req.session.id }, 
         });
 
+        console.log(userSession)
         if (userSession) {
             console.log("Found user session.");
-            res.status(200).json({
-                message: "Success",
-                success: true
-            });
             return next();
         } else {
             console.error("Cannot find user session.");
