@@ -5,7 +5,6 @@ import bcrypt from 'bcrypt'
 import 'dotenv/config';
 import session from 'express-session';
 import { PrismaSessionStore } from '@quixo3/prisma-session-store';
-import  { PrismaClient } from '@prisma/client';
 import checkAuth from './middleware/checkAuth.js';
 
 const app = express();
@@ -21,16 +20,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: { 
         secure: true,
         maxAge: 7 * 24 * 60 * 60 * 1000,  //ms -> 7 days
     },
-    store: new PrismaSessionStore(new PrismaClient(), {
-        checkPeriod: 60 * 1000, //ms -> 60 seconds
-        dbRecordIdIsSessionId: true,
-        dbRecordIdFunction: undefined,
-    })
+    store: new PrismaSessionStore(
+        prisma, {
+            checkPeriod: 60 * 1000, //ms -> 60 seconds
+            }
+        )
 }));
 
 app.use((req, res, next) => {
