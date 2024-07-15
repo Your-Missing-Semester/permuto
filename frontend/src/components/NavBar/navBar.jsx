@@ -4,7 +4,6 @@ import styles from './navBar.module.css'
 
 function NavBar() {
     return(
-        <div className={styles["fake-body"]}>
             <div className={styles["nav-bar"]}>
                 <div className={styles["routes"]}>
                     <ul className={styles["route-list"]}>
@@ -16,7 +15,6 @@ function NavBar() {
                         <li><Link className={styles["link-styles"]} to ="/logout">LOGOUT /</Link></li>
                     </ul>
                 </div>
-            </div>
         </div>
     )
 }
