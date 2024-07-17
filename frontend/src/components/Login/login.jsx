@@ -14,7 +14,6 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("heyy");
 
         const response = await axios.post('/login', {
             email: email,
@@ -27,7 +26,6 @@ const Login = () => {
             console.log(error);
           });
 
-        console.log(response)
 
         if (!email) {
             setEmailError(<p className={styles["required-input"]}><span className={styles["warning-error"]}>&#9888;</span> Please enter an email.</p>)
@@ -41,11 +39,7 @@ const Login = () => {
             setPasswordError('')
         }
 
-        // const loginInfo = await {email, password};
-    }
-
-
-    
+    }    
 
     return (
         <div className={styles["login-page"]}>
