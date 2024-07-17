@@ -3,7 +3,8 @@ CREATE TABLE "Session" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "sid" TEXT NOT NULL,
     "data" TEXT NOT NULL,
-    "expiresAt" DATETIME NOT NULL
+    "expiresAt" DATETIME NOT NULL,
+    "userId"    TEXT NOT NULL
 );
 
 -- CreateIndex
