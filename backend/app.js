@@ -6,7 +6,7 @@ import bcrypt from 'bcrypt'
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:8080',
     credentials: true
 }));
 
@@ -54,8 +54,37 @@ app.post('/changeUsername', (req, res) => {
 })
 
 // TODO T32: log in 
-app.post('/login', (req, res) => {
-    res.status(200).send("Login endpoint under construction.");
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+
+    const storedHashedPassword = await prisma.user.findUnique({
+        where: {
+            email: email,
+        },
+        select: {
+            password: true,
+        },
+      });
+
+    if(!storedHashedPassword){
+        res.send('Authentication failed - user not found');
+    }
+
+    bcrypt.compare(password, storedHashedPassword.password, (err, result) => {
+        if (err) {
+            res.send('Error comparing passwords:', err);
+            return;
+        }
+    
+    if (result) {
+        // Passwords match, authentication successful
+        res.send('Passwords match! User authenticated.');
+    } else {
+        // Passwords don't match, authentication failed
+        res.send('Passwords do not match! Authentication failed.');
+    }
+    });
+    
 });
 
 // TODO T32: profile 

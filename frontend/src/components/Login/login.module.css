@@ -1,0 +1,168 @@
+.login-page {
+    background-color: #201E1F;
+    font-family: 'Gill Sans', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    width: auto;
+}
+
+.form-side {
+    background-color: #FEEFDD;
+    width: 50%;
+    margin: 3vh 1.5vh 3vh 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1;
+}
+
+.image-side {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3vh 3vh 3vh 1.5vh;
+}
+
+.logo img {
+    width: 50%;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 30px auto;
+    padding: 0;
+}
+
+.title {
+    text-align: center;
+    margin: 0 auto 54px auto;
+    line-height: 0;
+    color:#FF4000;
+}
+
+.form {
+    width: 40vh;
+    margin: 0 auto 0vh auto;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    color:#FF4000;
+}
+
+.form input {
+    width: 38.2vh;
+    border: 3px solid #FF4000;
+    padding: 5px 5px 5px 5px;
+    background-color: #FEEFDD;
+    margin: 4px auto 24px auto;
+    font-size: 15px;
+    color:#FF4000;
+}
+
+.form input:focus {
+    border: 3px solid #FF4000;
+    box-shadow: 3px 4px 5px 3px #FAAA8D ;
+    outline: none;
+}
+
+.form input::placeholder {
+    color:#FF4000;
+    font-size: 16px;
+}
+
+.forgot-password {
+    width: 40vh;
+    text-align: left;
+    margin: 0 auto 16px auto;
+}
+
+.forgot-password-link {
+    color: #FF4000;
+    text-decoration: none;
+    font-weight: 550;
+}
+
+.login-signup-buttons {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 40vh;
+    margin: 0 auto 0 auto;
+}
+
+.login-button {
+    width: 11vh;
+    color: #FF4000;
+    text-align: left;
+    margin: 0 0 0 auto;
+}
+
+.login-button button:hover {
+    cursor: pointer;
+    box-shadow: 3px 4px 5px 2px #FAAA8D ;
+
+}
+
+.login-button button {
+    background-color: #FF4000;
+    color:#FEEFDD;
+    font-weight: bold;
+    width: 11vh;
+    height: 3.8vh;
+    border: none;
+}
+
+.sign-up {
+    width: 29vh;
+    text-align: left;
+    margin: 0 auto 44px 0;
+    font-weight: 550;
+    padding-left: 16px;
+    line-height: 3.8vh;
+}
+
+.sign-up-link {
+    color: #FF4000;
+    font-weight: 550;
+    text-decoration: none;
+}
+
+.login-as-header hr {
+    border: 2px solid #FF4000;
+    margin-bottom: 28px;
+}
+
+.login-as-header {
+    width: 40vh;
+    margin: 0 auto 0 auto;
+    text-align: left;
+    line-height: 0;
+    color:#FF4000;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.login-as-body {
+    width: 40vh;
+    margin: 0 auto 0 auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    line-height: 0;
+    font-size: 12px;
+}
+
+.title h1 {
+    font-size: 18px;
+    line-height: 0;
+}
+
+.login-as-header p {
+    line-height: 0;
+}
+
+.login-as-body p {
+    line-height: 0;
+}
