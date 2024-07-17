@@ -9,6 +9,8 @@ const ChangeUsername = () => {
         event.preventDefault();
         const response = await axios.post('/changeusername', {
             newUsername
+          }, {
+            withCredentials: true
           });
         alert('Username has been changed!');
     }
