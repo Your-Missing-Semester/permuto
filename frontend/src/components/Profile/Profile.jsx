@@ -1,101 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './profile.module.css';
-import NavBar from '../LandingPage/NavBar/navbar';
 
-function Profile() {
+const Profile = () => {
+    // isEditing is false, setIsEditing is a function that updates the value of 'isEditing'
+    const [isEditing, setIsEditing] = useState(false)
+
+    const toggleEdit = () => {
+        setIsEditing(!isEditing);
+    };
+
     return (
-        <div className={styles["profile-page"]}>
-            <div className={styles["nav-bar"]}>
-                <div className={styles["logo"]}>
-                    <img src="" alt="App logo" />
-                </div>
-                <NavBar />
-            </div>
-
-            <div className={styles["profile-details"]}>
-                <div className={styles["profile"]}>
-                    <div className={styles["profile-pic"]}>
-                        <img src="" alt="User Profile"/>
-                    </div>
-
-                    <div className={styles["user-name"]}>
-                        <p> First Name Last Initial </p>
-                    </div>
-                </div>
-
-                <div className={styles["user-info"]}>
-                    <div className={styles["status"]}>
-                        <div className={styles["status-header"]}> 
-                            <h2> Current Status </h2>
-                        </div>
-
-                        <div className={styles["status-description"]}> 
-                            <div className={styles["text"]}>
-                                <p> Description of current wants and needs of user </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className={styles["info"]}>
-                        <div className={styles["contact"]}>
-                            <button className={styles["contact-button"]}>
-                                contact
-                            </button>
-                        </div>
-
-                        <div className={styles["reviews"]}>
-                            <p> Reviews </p>
-                        </div>
-
-                        <div className={styles["location"]}>
-                            <p> General Location </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className={styles["skills"]}>
-                <div className={styles["skills-detail"]}>
-                    <div className={styles["skills-header"]}>
-                        <h2> Skills </h2>
-                    </div>
-
-                    <div className={styles["mini-skills-info"]}>
-                        <div className={styles["skill-name"]}>
-                            <p> Skill Name </p>
-                        </div>
-
-                        <div className={styles["years-of-experience"]}>
-                            <p> # years </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className={styles["proof-of-skills"]}>
-                    <div className={styles["proof-header"]}>
-                        <h2> Proof of Skills </h2>
-                    </div>
-
-                    <div className={styles["proof-info"]}>
-                        <div className={styles["skill"]}>
-                            <p> Skill: </p>
-                        </div>
-
-                        <div className={styles["images-and-description"]}>
-                            <div className={styles["proof-image"]}>
-                                <img src="" alt="User Skill" />
-                            </div>
-
-                            <div  className={styles["skill-description"]}>
-                                <p> User description of skill experience here </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <div className={styles["edit-or-view"]}>
+            {isEditing ? (
+                <ProfileEdit toggleEdit={toggleEdit}/>
+            ) : (
+                <ProfileView toggleEdit={toggleEdit}/>
+            )}
         </div>
     );
-}
+};
+    
+// copy johnny's code
+const ProfileView = (toggleEdit) => {
+    <div className={styles["profile-view-page"]}>
+        <div className={styles["profile-view-details"]}>
+            <div className={styles["profile-view-pic"]}>
+                <img src="" alt="Self Profile"/>
+            </div>
+
+            <div className>
+            </div>
+        </div>
+
+        <div className={styles["copy-or-edit"]}>
+        </div>
+    </div>
+};
+
+const ProfileEdit = (toggleEdit) => {
+};
 
 export default Profile;
