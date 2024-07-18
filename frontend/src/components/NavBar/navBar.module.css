@@ -1,0 +1,45 @@
+.nav-bar {
+    position: fixed;
+    width: 320px;
+    height: 1024px;
+    justify-content: left;
+    background-color:#FF4000;
+    top:0;
+    left:0;
+}
+
+.routes{
+    position: fixed;
+    vertical-align: bottom;
+    padding-right: 58px;
+    padding-bottom: 58px;
+    padding-left: 58px;
+    bottom:0;
+    left:0;
+}
+
+.route-list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.route-list li{
+    font-size: 16px;
+    padding-top: 7%;
+}
+
+.link-styles {
+    color: #FEEFDD;
+    font-weight: bold;
+}
+
+.link-styles:hover{
+    color: #FAAA8D;
+    text-decoration: underline 2px;
+}
+
+
+
+
+
