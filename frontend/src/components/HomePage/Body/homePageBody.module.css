@@ -1,7 +1,7 @@
 .body-grid {
     display: grid;
     grid-template-columns: [c1] 320px [c2] auto;
-    grid-template-rows: [r1] 13% [r2] 30% [r3] 10% [r4] 25%;
+    grid-template-rows: [r1] 13% [r2] 30% [r3] 12% [r4] 25%;
 }
 
 .home-heading {
@@ -9,16 +9,19 @@
     grid-column: 2;
     color:#FF4000;
     font-size: 16px;
+    letter-spacing: 1px;
 }
 
 .body-heading {
     grid-row: 2;
     grid-column: 2;
-    color: #393939;
+    color: #393939; 
+    /* I stole this from the figma mockups but this wasn't in the 
+    color scheme so we can change later if dont like*/
     font-size: 48px;
     height: 72px;
     width: 800px;
-    letter-spacing: 2%;
+    letter-spacing: 2px;
 }
 
 .search-bar-heading {
@@ -26,6 +29,7 @@
     grid-column: 2;
     color:#FF4000;
     font-size: 16px;
+    letter-spacing: 1px;
 }
 
 .search {
@@ -40,8 +44,9 @@
     width: 150px;
     color: white;
     background-color: #FF4000;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .search-button:hover {
