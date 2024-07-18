@@ -2,6 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import prisma from './db/db.js'
 import bcrypt from 'bcrypt'
+import 'dotenv/config';
+import session from 'express-session';
+import { PrismaSessionStore } from '@quixo3/prisma-session-store';
+import checkAuth from './middleware/checkAuth.js';
 
 const app = express();
 
@@ -12,6 +16,26 @@ app.use(cors({
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { 
+        secure: true,
+        maxAge: 7 * 24 * 60 * 60 * 1000,  //ms -> 7 days
+    },
+    store: new PrismaSessionStore(
+        prisma, {
+            checkPeriod: 60 * 1000, //ms -> 60 seconds
+            }
+        )
+}));
+
+app.use((req, res, next) => {
+    console.log(`${req.method}:${req.url}`);
+    next();
+});
 
 app.get("/", (req, res) => {
     res.send("Hello World!");
@@ -48,23 +72,23 @@ app.post('/signup', async (req, res) => {
     res.send('New user registered!')
 });
 
-app.post('/changeUsername', (req, res) => {
-    const newUsername = req.body.newUsername
-    res.send('Changed your username to: ' + newUsername);
-})
-
 // TODO T32: log in 
 app.post('/login', (req, res) => {
     res.status(200).send("Login endpoint under construction.");
 });
 
+app.post('/changeUsername', checkAuth, (req, res) => {
+    const newUsername = req.body.newUsername
+    res.send('Changed your username to: ' + newUsername);
+})
+
 // TODO T32: profile 
-app.post('/profile', (req, res) => {
+app.post('/profile', checkAuth, (req, res) => {
     res.status(200).send("Profile endpoint under construction.");
 });
 
 // eventually read off session instead of userId in params
-app.patch('/reset-password/:userId', async (req, res) => {
+app.patch('/reset-password/:userId', checkAuth, async (req, res) => {
     try {
         const { userId } = req.params;
         const { newPassword } = req.body;
