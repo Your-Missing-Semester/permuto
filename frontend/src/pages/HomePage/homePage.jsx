@@ -15,7 +15,7 @@ function Home() {
 
     return (
         <div>
-            <NavBar />
+            {/* <NavBar /> */}
             <HomePageBody />
             <UserProfile user={dummyUser}/>
         </div>
