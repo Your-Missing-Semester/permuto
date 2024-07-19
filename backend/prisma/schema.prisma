@@ -34,3 +34,11 @@ model Skill {
   profile         Profile     @relation(fields: [profileId], references: [id])
   profileId       String
 }
+
+model Session {
+  id              String      @id
+  sid             String      @unique
+  data            String
+  expiresAt       DateTime
+  userId          String
+}
