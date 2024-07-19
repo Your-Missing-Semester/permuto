@@ -1,0 +1,20 @@
+.profile-grid {
+    display: grid;
+    grid-template-columns: [c1] 320px [c2] auto;
+}
+
+.profile-card{
+    display: flex;
+    gap: 16px;
+    grid-column: 2;
+    width: 800px;
+    height: 160px;
+    padding: 16px;
+    border: solid #FF4000;
+    border-width: 3px 3px;
+}
+
+.pfp{
+    width: 160px;
+    height: 160px;
+}
