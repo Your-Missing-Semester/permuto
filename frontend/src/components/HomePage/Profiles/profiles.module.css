@@ -1,9 +1,9 @@
 .profile-grid {
     display: grid;
-    grid-template-columns: [c1] 320px [c2] auto;
+    grid-template-columns: [c1] 320px;
 }
 
-.profile-card{
+.profile-card {
     display: flex;
     gap: 16px;
     grid-column: 2;
@@ -14,7 +14,47 @@
     border-width: 3px 3px;
 }
 
-.pfp{
+.row1{
+    display: flex;
+}
+
+.username {
+    font-size: 24px;
+    padding-top: 0;
+    padding-right: 250px;
+    margin: 0;
+    color: #393939; 
+}
+
+.pfp {
     width: 160px;
     height: 160px;
+}
+
+.skills {
+    display: inline-block;
+    text-align: center;
+    margin-top: 4px;
+    color: white;
+    font-size: 16px;
+    font-weight:lighter;
+    background-color: #FAAA8D;
+    padding: 5px;
+}
+
+.bio {
+    margin-top: 2px;
+}
+
+.row2{
+    display: flex;
+    padding-top: 35px;
+    gap: 5px;
+}
+
+
+.location-icon {
+    padding-top: 3px;
+    width: 15px;
+    height: 20px;
 }

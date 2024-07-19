@@ -5,7 +5,7 @@ import UserProfile from '../../components/HomePage/Profiles/profiles';
 function HomePage() {
     return (
         <div>
-            {/* <NavBar /> */}
+            <NavBar />
             <HomePageBody />
             <UserProfile />
         </div>
