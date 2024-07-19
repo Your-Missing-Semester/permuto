@@ -72,32 +72,6 @@ app.post('/signup', async (req, res) => {
     res.send('New user registered!')
 });
 
-app.post('/changeUsername', async (req, res) => {
-    const newUsername = req.body.newUsername
-    // const currentUsername = req.session.userId
-
-    const checkUserAvailability = await prisma.user.findUnique({
-        where: {
-            username: newUsername
-        }
-    })
-
-    if(checkUserAvailability) {
-        return res.status(400).send('Username already in use.')
-    }
-
-    // const changeUsername = await prisma.user.update({
-    //     where: {
-    //         username: currentUsername
-    //     },
-    //     data: {
-    //         username: newUsername
-    //     }
-    // })
-
-    res.status(200).send('Changed your username to: ' + newUsername);
-})
-
 // TODO T32: log in 
 app.post('/login', (req, res) => {
     res.status(200).send("Login endpoint under construction.");
