@@ -1,6 +1,6 @@
 .profile-grid {
     display: grid;
-    grid-template-columns: [c1] 320px;
+    grid-template-columns: [c1] 640px [c2] auto [c3] 320px;
 }
 
 .profile-card {
@@ -24,6 +24,10 @@
     padding-right: 250px;
     margin: 0;
     color: #393939; 
+}
+
+.user-details{
+    display: flex;
 }
 
 .pfp {
@@ -51,7 +55,6 @@
     padding-top: 35px;
     gap: 5px;
 }
-
 
 .location-icon {
     padding-top: 3px;

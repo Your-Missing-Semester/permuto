@@ -1,6 +1,6 @@
 .body-grid {
     display: grid;
-    grid-template-columns: [c1] 320px [c2] auto;
+    grid-template-columns: [c1] 640px [c2] auto [c3] 320px;
     grid-template-rows: [r1] 13% [r2] 30% [r3] 12% [r4] 25%;
 }
 
