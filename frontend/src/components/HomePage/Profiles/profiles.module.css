@@ -19,6 +19,10 @@
     flex-direction: column;
 }
 
+.user-details{
+    display: flex;
+}
+
 .pfp {
     width: 160px;
     height: 160px;
