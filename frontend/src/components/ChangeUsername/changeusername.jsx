@@ -16,30 +16,32 @@ const ChangeUsername = () => {
     }
 
     return (
-    <div className={styles["change-user-page"]}>
-    <div className={styles.header}>
-        <h5>Change username</h5>
-    </div>
+    <div className={styles["changeuser-body"]}>
+        <div className={styles["change-user-page"]}>
+        <div className={styles.header}>
+            <h5>Change username</h5>
+        </div>
 
-    <div className={styles["change-user-form"]}>
-        <form onSubmit={handleSubmit}>
-            <div className={styles["change-input"]}>
-                <label>Enter new username:</label>
-                <input className= {styles["user-input"]}
-                    type="text"
-                    name="new-user"
-                    placeholder="New username"
-                    value={newUsername}
-                    onChange={(e) => setNewUsername(e.target.value)}
-                    required
-                />
-            </div>
+        <div className={styles["change-user-form"]}>
+            <form onSubmit={handleSubmit}>
+                <div className={styles["change-input"]}>
+                    <label>Enter new username:</label>
+                    <input className= {styles["user-input"]}
+                        type="text"
+                        name="new-user"
+                        placeholder="New username"
+                        value={newUsername}
+                        onChange={(e) => setNewUsername(e.target.value)}
+                        required
+                    />
+                </div>
 
-            <div className={styles["confirm-button"]}>
-                <button type="submit" className={styles["confirm-btn"]}>CHANGE</button>
-            </div>
-        </form>
-    </div>
+                <div className={styles["confirm-button"]}>
+                    <button type="submit" className={styles["confirm-btn"]}>CHANGE</button>
+                </div>
+            </form>
+        </div>
+        </div>
     </div>
     )
 }

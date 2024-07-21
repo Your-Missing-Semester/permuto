@@ -34,4 +34,4 @@ function UserProfile (user) {
     )
 }
 
-export default UserProfile
+export default UserProfile;
