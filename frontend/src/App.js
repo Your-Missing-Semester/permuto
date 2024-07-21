@@ -6,7 +6,7 @@ import Profile from './components/Profile/Profile';
 import ChangeUsername from './components/ChangeUsername/changeusername';
 import NavBar from './components/HomePage/NavBar/navBar';
 import ResetPassword from './components/ResetPassword/resetpassword';
-import HomePage from './pages/HomePage/homePage';
+import Home from './pages/HomePage/homePage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -40,8 +40,8 @@ const router = createBrowserRouter([
     element: <ResetPassword />,
   },
   {
-    path: "/homePage",
-    element: <HomePage />,
+    path: "/home",
+    element: <Home />,
   }
 ]);
 

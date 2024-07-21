@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './profiles.module.css';
 import pfpPlaceholder from '../../Assets/pfpPlaceholder.png';
 import locationIcon from '../../Assets/locationIcon.png'
+import { Link } from 'react-router-dom';
 
 function UserProfile (user) {
     return (
@@ -10,8 +11,10 @@ function UserProfile (user) {
                 <img className={styles["pfp"]}src={pfpPlaceholder} alt={"placeholder"}></img>
                 <div>
                     {/* placed xxx: placeholders to see how it'd look*/}
+                    {/* update userprofile link */}
                     <div className={styles["row1"]}>
-                        <h2 className={styles["username"]}>Name:sdfgsdfgdsdfgsdfgasdf {user.firstName} {user.lastName}</h2>
+                        <Link className={styles["username"]} to={user.profilePage}> 
+                            Name:sdfgsdfgdsdfgsdfgasdf {user.firstName} {user.lastName}</Link>
                         <div className={styles["user-details"]}>
                             <p>[staricon]</p>
                             <p> 5.0/5.0</p>
