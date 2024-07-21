@@ -1,7 +1,8 @@
 .body-grid {
     display: grid;
-    grid-template-columns: [c1] 640px [c2] auto [c3] 320px;
-    grid-template-rows: [r1] 13% [r2] 30% [r3] 12% [r4] 25%;
+    padding-top: 5%;
+    grid-template-columns: [c1] 560px [c2] auto [c3] 320px;
+    grid-template-rows: [r1] 25% [r2] 30% [r3] 12% [r4] 25%;
 }
 
 .home-heading {
@@ -10,6 +11,7 @@
     color:#FF4000;
     font-size: 16px;
     letter-spacing: 1px;
+    padding-top: 5%;
 }
 
 .body-heading {
@@ -33,6 +35,8 @@
 }
 
 .search {
+    width: 832px;
+    height: 65px;
     display: flex;
     gap: 10px;
     grid-column: 2;
@@ -40,7 +44,7 @@
 }
 
 .search-button {
-    height: 46px;
+    height: 45px;
     width: 150px;
     color: white;
     background-color: #FF4000;

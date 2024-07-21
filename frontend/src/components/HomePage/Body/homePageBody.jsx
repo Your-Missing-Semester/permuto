@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './homePageBody.module.css'
 
 function HomePageBody () {
-    const [searchInput, setInput] = React.useState('')
+    const [searchInfo, setSearchInfo] = React.useState('');
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
     }
 
     return (
@@ -17,15 +17,15 @@ function HomePageBody () {
                 <input
                 type="text" 
                 placeholder='Keyboard modding'
-                value={searchInput}
-                onchange={(e)=> setInput(e.target.value)} />
+                value={searchInfo}
+                onChange={(e) => setSearchInfo(e.target.value)} 
+                />
 
                 <button
                 className={styles["search-button"]}
-                onclick={handleSubmit}>SEARCH</button>
+                onClick={handleSubmit}>SEARCH</button>
             </div>   
         </div>
-        
     )
 }
 

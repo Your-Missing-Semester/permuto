@@ -1,6 +1,6 @@
 .profile-grid {
     display: grid;
-    grid-template-columns: [c1] 640px [c2] auto [c3] 320px;
+    grid-template-columns: [c1] 560px [c2] auto [c3] 320px;
 }
 
 .profile-card {
@@ -27,7 +27,7 @@
 }
 
 .username:hover {
-    color: #FF4000;
+    color: #FAAA8D;
     text-decoration: underline;
 }
 
