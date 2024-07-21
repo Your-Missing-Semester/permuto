@@ -19,6 +19,11 @@
     flex-direction: column;
 }
 
+.username:hover {
+    color: #FF4000;
+    text-decoration: underline;
+}
+
 .user-details{
     display: flex;
 }

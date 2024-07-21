@@ -8,7 +8,7 @@ function NavBar() {
                 <div className={styles["routes"]}>
                     <ul className={styles["route-list"]}>
                         {/* links need to be updated */}
-                        <li><Link className={styles["link-styles"]} to="/homePage">HOME /</Link></li>
+                        <li><Link className={styles["link-styles"]} to="/home">HOME /</Link></li>
                         <li><Link className={styles["link-styles"]}to="/profile">PROFILE /</Link></li>
                         <li><Link className={styles["link-styles"]}to="/favourites">FAVOURITES /</Link></li>
                         <li><Link className={styles["link-styles"]}to="/settings">SETTINGS /</Link></li>
