@@ -9,24 +9,23 @@ function UserProfile (user) {
         <div className={styles["profile-grid"]}>
             <div className={styles["profile-card"]}>
                 <img className={styles["pfp"]}src={pfpPlaceholder} alt={"placeholder"}></img>
-                <div>
-                    {/* placed xxx: placeholders to see how it'd look*/}
-                    {/* update userprofile link */}
+                <div className={styles["card-info"]}>
                     <div className={styles["row1"]}>
+                        {/* need to set char limits for name, bio, skill*/}
                         <Link className={styles["username"]} to={user.profilePage}> 
-                            Name:sdfgsdfgdsdfgsdfgasdf {user.firstName} {user.lastName}</Link>
+                           Name: {user.firstName} {user.lastName}</Link>
                         <div className={styles["user-details"]}>
-                            <p>[staricon]</p>
-                            <p> 5.0/5.0</p>
+                            <p>[star]</p>
+                            <p> {user.rating}XX/5.0</p>
                             <p>[book]</p>
                             <p>[pin]</p>
                         </div>
                     </div>
-                    <h3 className={styles["skills"]}>skills: {user.skills}</h3>
-                    <p className={styles["bio"]}>bio: {user.bio}</p>
+                    <h3 className={styles["skills"]}>skills: sdfjlghsldfkjg hsldfkjghsdlkjfghsdlkfjghsdflkjghsdfklghsdflkghsdflkjghsdfk lghsdlkfjghsdlkjfgh {user.skills}</h3>
+                    <h3 className={styles["bio"]}>bio: {user.bio}</h3>
                     <div className={styles["row2"]}>
                         <img className={styles["location-icon"]}src={locationIcon} alt={"location"}></img>
-                        <p className={styles["location"]}>Location: {user.location}</p>
+                        <h3 className={styles["location"]}>Location:{user.location}</h3>
                     </div>
                 </div>
             </div>

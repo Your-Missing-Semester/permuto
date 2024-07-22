@@ -1,29 +1,42 @@
 .profile-grid {
     display: grid;
-    grid-template-columns: [c1] 560px [c2] auto [c3] 320px;
+    grid-template-columns: [c1] 560px [c2] auto;
 }
 
 .profile-card {
     display: flex;
     gap: 16px;
     grid-column: 2;
-    width: 800px;
+    width: 795px;
     height: 160px;
     padding: 16px;
-    border: solid #FF4000;
-    border-width: 3px 3px;
+    border: solid #FF4000 3px;
 }
 
-.row1{
+.card-info {
+    grid-column: 2;
     display: flex;
+    flex-direction: column;
+    border: solid blue 3px;
+}
+
+.pfp {
+    width: 160px;
+    height: 160px;
+}
+
+.row1 {
+    display: flex;
+    flex-direction: row;
+    width: 618px;
 }
 
 .username {
     font-size: 24px;
-    padding-top: 0;
-    padding-right: 250px;
-    margin: 0;
     color: #393939; 
+    max-width: 450px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .username:hover {
@@ -33,36 +46,44 @@
 
 .user-details{
     display: flex;
-}
-
-.pfp {
-    width: 160px;
-    height: 160px;
+    margin-left: auto;
 }
 
 .skills {
     display: inline-block;
     text-align: center;
-    margin-top: 4px;
+    margin-top: 3px;
+    margin-bottom: 5px;
     color: white;
     font-size: 16px;
     font-weight:lighter;
     background-color: #FAAA8D;
     padding: 5px;
+    text-wrap: pretty;
 }
 
 .bio {
-    margin-top: 2px;
+    margin-top: auto;
+    font-size: 16px;
+    font-weight: lighter;
+    border: 3px purple solid;
 }
 
 .row2{
     display: flex;
-    padding-top: 35px;
     gap: 5px;
+    border: 3px green solid;
+}
+
+.location {
+    font-size: 16px;
+    font-weight: lighter;
+    margin: 0px;
+    float: left
 }
 
 .location-icon {
-    padding-top: 3px;
     width: 15px;
     height: 20px;
+    float: left;
 }
