@@ -1,0 +1,92 @@
+.profile-grid {
+    display: grid;
+    grid-template-columns: [c1] 465px [c2] auto;
+}
+
+.profile-card {
+    display: flex;
+    gap: 16px;
+    grid-column: 2;
+    width: 795px;
+    height: 160px;
+    padding: 16px;
+    border: solid #FF4000 3px;
+}
+
+.card-info {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.pfp {
+    width: 160px;
+    height: 160px;
+}
+
+.row1 {
+    display: flex;
+    flex-direction: row;
+    width: 618px;
+}
+
+.username {
+    font-size: 24px;
+    color: #393939; 
+    max-width: 450px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.username:hover {
+    color: #FAAA8D;
+    text-decoration: underline;
+}
+
+.user-details{
+    display: flex;
+    margin-left: auto;
+}
+
+.skills {
+    display: flex;
+    gap: 3px;
+    list-style-type: none;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight:lighter;
+    text-wrap: pretty;
+    padding-left: 0;
+}
+
+.skills li {
+    background-color: #FAAA8D;
+    padding: 5px;
+}
+
+.bio {
+    margin-top: 3px;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.row2{
+    display: flex;
+    gap: 5px;
+    margin-top: 1em;
+    margin-bottom: auto;
+}
+
+.location {
+    font-size: 16px;
+    font-weight: lighter;
+    margin-bottom: auto;
+}
+
+.location-icon {
+    width: 15px;
+    height: 20px;
+    margin-top: auto;
+}
