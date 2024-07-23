@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './profiles.module.css';
 import pfpPlaceholder from '../../Assets/pfpPlaceholder.png';
 import locationIcon from '../../Assets/locationIcon.png'
-import LOS from './listOfSkills';
+import UserListOfSkills from './listOfSkills';
 import { Link } from 'react-router-dom';
 
 function UserProfile ({ user }) {
@@ -22,7 +22,7 @@ function UserProfile ({ user }) {
                             <p>[pin]</p>
                         </div>
                     </div>
-                    <LOS user={ user } />
+                    <UserListOfSkills user={ user } />
                     {/* <h3 className={styles["skills"]}>{user.skills}</h3> */}
                     <h3 className={styles["bio"]}>{user.bio}</h3>
                     <div className={styles["row2"]}>
