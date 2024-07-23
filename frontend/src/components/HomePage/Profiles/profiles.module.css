@@ -1,6 +1,6 @@
 .profile-grid {
     display: grid;
-    grid-template-columns: [c1] 560px [c2] auto;
+    grid-template-columns: [c1] 465px [c2] auto;
 }
 
 .profile-card {

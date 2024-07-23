@@ -1,7 +1,7 @@
 .body-grid {
     display: grid;
     padding-top: 5%;
-    grid-template-columns: [c1] 560px [c2] auto [c3] 320px;
+    grid-template-columns: [c1] 465px [c2] auto [c3] 320px;
     grid-template-rows: [r1] 25% [r2] 30% [r3] 12% [r4] 25%;
 }
 
