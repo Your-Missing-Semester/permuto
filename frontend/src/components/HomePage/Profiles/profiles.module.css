@@ -49,16 +49,21 @@
 }
 
 .skills {
-    display: inline-block;
-    text-align: center;
+    display: flex;
+    gap: 3px;
+    list-style-type: none;
     margin-top: 3px;
     margin-bottom: 5px;
     color: white;
     font-size: 16px;
     font-weight:lighter;
+    text-wrap: pretty;
+    padding-left: 0;
+}
+
+.skills li {
     background-color: #FAAA8D;
     padding: 5px;
-    text-wrap: pretty;
 }
 
 .bio {
@@ -70,18 +75,18 @@
 .row2{
     display: flex;
     gap: 5px;
+    margin-top: 1em;
+    margin-bottom: auto;
 }
 
 .location {
     font-size: 16px;
     font-weight: lighter;
     margin-bottom: auto;
-    float: left
 }
 
 .location-icon {
     width: 15px;
     height: 20px;
-    float: left;
     margin-top: auto;
 }
