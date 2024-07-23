@@ -6,6 +6,7 @@ function Home() {
     const dummyUser = {
         firstName: "Santa",
         lastName: "Claus",
+        profilePage: "/profile",
         rating: "3.0",
         bio: "lots and lots of stuff",
         location: "North Pole",
