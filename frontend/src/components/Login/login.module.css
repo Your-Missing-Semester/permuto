@@ -63,6 +63,11 @@
     color:#FF4000;
 }
 
+ .required-input {
+    padding-bottom: 5px;
+    margin-top: -14px;
+} 
+
 .form input:focus {
     border: 3px solid #FF4000;
     box-shadow: 3px 4px 5px 3px #FAAA8D ;

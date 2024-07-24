@@ -15,30 +15,24 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await axios.post('/login', {
-            email: email,
-            password: password
-        })
-        .then((response) => {
-            console.log(response);
-          })
-          .catch( (error) => {
-            console.log(error);
-          });
-
-
         if (!email) {
-            setEmailError(<p className={styles["required-input"]}><span className={styles["warning-error"]}>&#9888;</span> Please enter an email.</p>)
+            setEmailError('Please enter an email.')
         }   else {
             setEmailError('')
         }
 
-        if (!email) {
-            setPasswordError(<p className={styles["required-input"]}><span className={styles["warning-error"]}>&#9888;</span> Please enter a password.</p>)
+        if (!password) {
+            setPasswordError('Please enter a password.')
         }   else {
             setPasswordError('')
         }
 
+        if (email && password) {
+            const response = await axios.post('/login', {
+                email: email,
+                password: password
+            })
+        }
     }    
 
     return (
@@ -55,7 +49,7 @@ const Login = () => {
 
                 </div>
 
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className={styles['form']}>
                         <label htmlFor="">EMAIL</label><br />
                         <input 
@@ -64,7 +58,11 @@ const Login = () => {
                         value={email} 
                         onChange={(e) => setEmail(e.target.value)}/>
 
-                        {emailError} <br />
+                        {emailError.length > 0 &&
+                            <p className={styles["required-input"]}>
+                            <span className={styles["warning-error"]}>&#9888;</span>
+                            {emailError} </p>
+                        }
 
                         <label htmlFor="">PASSWORD</label><br />
                         <input 
@@ -73,7 +71,12 @@ const Login = () => {
                         value={password} 
                         onChange={(e) => setPassword(e.target.value)}/>
 
-                        {passwordError} <br />
+                        {passwordError.length > 0 &&
+                            <p className={styles["required-input"]}>
+                            <span className={styles["warning-error"]}>&#9888;</span>
+                            {passwordError} </p>
+                        }
+
                     </div>
 
                     <div className={styles['forgot-password']}>
@@ -82,7 +85,7 @@ const Login = () => {
 
                     <div className={styles['login-signup-buttons']}>
                         <div className={styles['login-button']}> 
-                            <button type="submit" onClick={handleSubmit}>LOGIN</button>
+                            <button type="submit">LOGIN</button>
                         </div>
 
                         <div className={styles['sign-up']}>

@@ -6,7 +6,7 @@ import bcrypt from 'bcrypt'
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:8080',
+    origin: 'http://localhost:3000',
     credentials: true
 }));
 
@@ -57,34 +57,40 @@ app.post('/changeUsername', (req, res) => {
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
-    const storedHashedPassword = await prisma.user.findUnique({
-        where: {
-            email: email,
-        },
-        select: {
-            password: true,
-        },
-      });
-
-    if(!storedHashedPassword){
-        res.send('Authentication failed - user not found');
+    if(!email){
+        return res.status(400).send('Please enter an email');
     }
 
-    bcrypt.compare(password, storedHashedPassword.password, (err, result) => {
-        if (err) {
-            res.send('Error comparing passwords:', err);
-            return;
+    if(!password){
+        return res.status(400).send('Please enter a password');
+    }
+
+    try {
+        const user = await prisma.user.findUnique({
+            where: {
+                email: email,
+            },
+            select: {
+                password: true,
+            },
+        })
+
+        if(!user){
+            return res.status(400).send('Authentication failed - user email not found');
         }
-    
-    if (result) {
-        // Passwords match, authentication successful
-        res.send('Passwords match! User authenticated.');
-    } else {
-        // Passwords don't match, authentication failed
-        res.send('Passwords do not match! Authentication failed.');
-    }
-    });
-    
+
+        const result = await bcrypt.compare(password, user.password)
+
+        if (result === false) {
+            return res.status(400).send('Passwords do not match! Authentication failed.')
+        } else {
+            return res.send('Passwords match! User authenticated.')
+        }
+
+    } catch (error) {
+        return res.status(400).send('Error logging in');
+    }  
+
 });
 
 // TODO T32: profile 
