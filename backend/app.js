@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import prisma from './db/db.js'
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcrypt'
 import 'dotenv/config';
 import session from 'express-session';
 import { PrismaSessionStore } from '@quixo3/prisma-session-store';
