@@ -52,8 +52,8 @@ body {
 }
 
 .square-img {
-    width: 70%;
-    height: 100%;
+    width: 200px;
+    height: 200px;
     justify-self: center;
     border: 3px solid rgb(226, 170, 102);
 }
