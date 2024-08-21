@@ -60,6 +60,11 @@ const ProfileEdit = ({ toggleEdit }) => {
     const avatarUrl = useRef(
         "https://images2.alphacoders.com/130/1305995.png"
     );
+
+    const updateAvatar = (imgSrc) => {
+        avatarUrl.current = imgSrc
+    }
+
     const [modalOpen, setModalOpen] = useState(false)
 
     const mountElement = document.getElementById("overlays");
@@ -141,7 +146,7 @@ const ProfileEdit = ({ toggleEdit }) => {
                             <button className={styles["change-photo-button"]} onClick={() => setModalOpen(true)}>
                                 <HiArrowUpTray />
                             </button>
-                            {modalOpen && <Modal closeModal={() => setModalOpen(false)} />}
+                            {modalOpen && <Modal updateAvatar={updateAvatar} closeModal={() => setModalOpen(false)} />}
                         </div>
                     </div>
 
