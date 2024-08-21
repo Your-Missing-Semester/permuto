@@ -1,0 +1,32 @@
+.modal-comp {
+    position: fixed;
+    top: 3em;
+    left: 7em;
+    z-index: 10;
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-content: start;
+    background-color: rgb(254, 239, 221);
+    width: 40%;
+    height: 80%;
+    padding: 2em;
+    border-radius: 0.2em;
+    box-shadow: 0 0 1em black;
+    color: black;
+    font-size: 20px;
+    cursor: auto;
+}
+
+.close-button {
+    width: 2em;
+    font-size: 20px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: transparent;
+    border-color: transparent;
+    top: 0.5em;
+    left: 0.5em;
+    color: black;
+    cursor: pointer;
+}
