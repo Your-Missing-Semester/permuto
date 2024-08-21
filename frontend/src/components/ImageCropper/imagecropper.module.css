@@ -14,11 +14,13 @@
 .crop-button {
     font-size: 15px;
     background-color:rgb(226, 170, 102);
+    border: 2px solid rgb(226, 170, 102);
     color: white;
     width: 20%;
     height: 10%;
     margin-left: 30%;
     margin-top: 5%;
+    cursor: pointer;
 }
 
 .preview-comp {
