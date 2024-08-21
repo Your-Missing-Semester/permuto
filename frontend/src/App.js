@@ -1,8 +1,8 @@
 import React from 'react';
 import LandingPage from './pages/LandingPage/landingpage';
 import Login from './components/Login/login';
-import Signup from './components/SignUp/Signup';
-import Profile from './components/Profile/Profile';
+import Signup from './components/Signup/Signup';
+import UserProfile from './components/Profile/Profile';
 import ChangeUsername from './components/ChangeUsername/changeusername';
 import NavBar from './components/HomePage/NavBar/navBar';
 import ResetPassword from './components/ResetPassword/resetpassword';
@@ -23,8 +23,8 @@ const router = createBrowserRouter([
     element: <Signup />,
   },
   {
-    path: "/profile",
-    element: <Profile />,
+    path: "/user-profile",
+    element: <UserProfile />,
   },
   {
     path: "/changeUsername",
