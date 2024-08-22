@@ -106,12 +106,24 @@ app.get('/profile/:userid', async (req, res) => {
         });
 
         if(!userProfile){
-            return res.status(400).send('Profile not found.')
+            return res.status(404).json({ message: 'Profile not found.' });
         }
 
-        res.send('Profile found!')
+        res.status(200).json({ profile: userProfile });
     } catch (error) {
-        console.error("Error fetching user profile and their skills")
+        console.error("Error fetching user profile and their skills: ", error)
+        
+        if (error instanceof prisma.PrismaClientKnownRequestError) {
+            console.error('Prisma Known Request Error:', error.message);
+            return res.status(400).json({ message: 'Database error occurred.' });
+            }
+        else if (error instanceof prisma.PrismaClientUnknownRequestError) {
+            console.error('Prisma Unknown Request Error:', error.message);
+        }
+        else {
+            console.error('Unexpected Error:', error.message);
+            return res.status(500).json({ message: 'An unexpected error occurred while fetching the profile.' });
+        }
     }
 });
 
