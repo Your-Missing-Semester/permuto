@@ -1,47 +1,139 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './profile.module.css';
-import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import Modal from '../Modal/Modal'
 import { HiArrowUpTray } from "react-icons/hi2";
+import Card from '../Cards/Card';
+import clubsImage from '../Assets/cardImages/club.png';
+import spadesImage from '../Assets/cardImages/spade.png';
+import heartsImage from '../Assets/cardImages/heart.png';
+import diamondsImage from '../Assets/cardImages/diamond.png';
 
 const Profile = () => {
-    // isEditing is false, setIsEditing is a function that updates the value of 'isEditing'
-    const [isEditing, setIsEditing] = useState(false)
+    console.info("Profile re-rendered")
 
-    const toggleEdit = () => {
-        setIsEditing(!isEditing);
+    const [isEditingProfile, setIsEditingProfile] = useState(false)
+
+    const handleEditProfile = () => {
+        setIsEditingProfile(true);
+    };
+
+    const handleSaveProfile = () => {
+        setIsEditingProfile(false);
     };
 
     return (
         <div className={styles["edit-or-view"]}>
-            {isEditing ? (
-                <ProfileEdit toggleEdit={toggleEdit}/>
+            {isEditingProfile ? (
+                <ProfileEdit onSaveProfile={handleSaveProfile}/>
             ) : (
-                <ProfileView toggleEdit={toggleEdit}/>
+                <ProfileView onEditProfile={handleEditProfile}/>
             )}
         </div>
     );
 };
     
-// copy johnny's code
-const ProfileView = ({ toggleEdit }) => {
-    <div className={styles["profile-view-page"]}>
-        <div className={styles["profile-view-details"]}>
-            <div className={styles["profile-view-pic"]}>
-                <img src="" alt="Self Profile"/>
-            </div>
+const ProfileView = ({ onEditProfile }) => {
+    console.info("ProfileView re-rendered")
 
-            <div className>
+    const cardImagesArr = [spadesImage, heartsImage, clubsImage, diamondsImage]
+
+    const generateCards = (numCards) => {
+        return Array.from({ length: numCards }, (_, index) => ({
+            id: index + 1,
+            image: cardImagesArr[index % cardImagesArr.length],
+            skillName: `Skill ${index + 1}`,
+            description:   `Description ${index + 1}`
+        }));
+    };
+
+    const [cards, setCards] = useState(generateCards(12));
+
+    const [editingCardId, setEditingCardId] = useState(null);
+
+    const handleEditCard = (id) => {
+        setEditingCardId(id);
+    };
+
+    const handleSaveCard = (id, editedSkillName, editedDescription) => {
+        setCards((prevCards) =>
+            prevCards.map((card) =>
+                card.id === id ? { 
+                    ...card, skillName: editedSkillName, description: editedDescription } 
+                    : card 
+            )
+        );
+        setEditingCardId(null)
+    }
+  
+    return (
+        <div className={styles["pv-page"]}>
+            <div className={styles["pv-container"]}>
+                <div className={styles["pv-left-page"]}>
+                    <button className={styles["back-button"]}>← Back</button>
+
+                    <div className={styles["user-pfp"]}/>
+            
+                    <p className={styles["user-name"]}>Jason Chen</p>
+  
+                    <p className={styles["user-headline"]}>
+                        San Francisco <span>Linear gang / WKL enjoyer</span>
+                    </p>
+  
+                    <div className={styles["user-rating"]}>
+                        <span>⭐ 4.97 / 5.0</span>
+                        <span className={styles["user-rate"]}>$98/HR</span>
+                    </div>
+  
+                    <p className={styles["user-bio"]}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+  
+                    <div className={styles["user-tags"]}>
+                        <span className={styles["dummy-tag"]}>Keyboard modding</span>
+                        <span className={styles["dummy-tag"]}>Apex Legends</span>
+                    </div>
+  
+                    <div className={styles["profile-buttons"]}>
+                        <div className={styles["copy-profile-link"]}>
+                            <button className={styles["copy-profile-link-button"]}> COPY PROFILE LINK </button>
+                        </div>
+
+                        <div className={styles["edit-profile"]}> 
+                            <button className={styles["edit-profile-button"]} onClick={onEditProfile}> EDIT PROFILE </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+            <div className={styles["edit-profile-skill"]}>
+                <form>
+                    <div className={styles["skill-cards-row-container"]}>
+                        {cards.map((card) =>
+                            <Card 
+                                key={card.id}
+                                {...card}
+                                isEditing={editingCardId === card.id}
+                                onEditCard={() => handleEditCard(card.id)}
+                                onSavCarde={(editedSkillName, editedDescription) =>
+                                    handleSaveCard(card.id, editedSkillName, editedDescription)
+                                }
+                            />
+                        )}
+                    </div>
+                </form>
             </div>
         </div>
+    );
+  };
 
-        <div className={styles["copy-or-edit"]}>
-        </div>
-    </div>
-};
-
-const ProfileEdit = ({ toggleEdit }) => {
+const ProfileEdit = ({ onSaveProfile }) => {
     // name
     const [name, setName] = useState('');
 
@@ -67,8 +159,6 @@ const ProfileEdit = ({ toggleEdit }) => {
 
     const [modalOpen, setModalOpen] = useState(false)
 
-    const mountElement = document.getElementById("overlays");
-
     // bio
     const [bio, setBio] = useState('');
     const MAX_TEXT_LENGTH = 500;
@@ -91,8 +181,15 @@ const ProfileEdit = ({ toggleEdit }) => {
     const [tag, setTag] = useState([]);
 
     const handleTagChange = (e) => {
-        if (e.key === "Enter" && e.target.value !== "") {
-            setTag([...tag, e.target.value])
+        const trimmedValue = e.target.value.trim();
+
+        if (e.key === "Enter") {
+            e.preventDefault();
+
+            if (trimmedValue !== "") {
+                setTag([...tag, trimmedValue]);
+            }
+
             e.target.value = "";
         };
     };
@@ -101,8 +198,36 @@ const ProfileEdit = ({ toggleEdit }) => {
         setTag(tag.filter((e1, i) => i !== index))
     };
 
-    // card flip
-    const [isFlipped, setIsFlipped] = useState(false)
+    // cards
+    const cardImagesArr = [spadesImage, heartsImage, clubsImage, diamondsImage]
+
+    const generateCards = (numCards) => {
+        return Array.from({ length: numCards }, (_, index) => ({
+            id: index + 1,
+            image: cardImagesArr[index % cardImagesArr.length],
+            skillName: `Skill ${index + 1}`,
+            description:   `Description ${index + 1}`
+        }));
+    };
+
+    const [cards, setCards] = useState(generateCards(12));
+
+    const [editingCardId, setEditingCardId] = useState(null);
+
+    const handleEditCard = (id) => {
+        setEditingCardId(id);
+    };
+
+    const handleSaveCard = (id, editedSkillName, editedDescription) => {
+        setCards((prevCards) =>
+            prevCards.map((card) =>
+                card.id === id ? { 
+                    ...card, skillName: editedSkillName, description: editedDescription } 
+                    : card 
+            )
+        );
+        setEditingCardId(null)
+    }
 
     const handleProfileSubmit = async (e) => {
         e.preventDefault();
@@ -111,18 +236,12 @@ const ProfileEdit = ({ toggleEdit }) => {
 
         formData.append('name', name);
         formData.append('location', location);
-        // formData.append('pfp', pfp);
+        formData.append('pfp', avatarUrl.current);
         formData.append('bio', bio);
         formData.append('rate', rate);
-        formData.append('tag', tag);
+        formData.append('tag', JSON.stringify(tag));
 
         console.info("Profile Summary Updated.")
-    };
-
-    const handleSkillSubmit = async (e) => {
-        e.preventDefault();
-
-        console.info("Skill Updated")
     };
 
     return (
@@ -130,7 +249,7 @@ const ProfileEdit = ({ toggleEdit }) => {
             {/* left side */}
             <div className={styles["edit-profile-summary"]}>
                 <div className={styles["back-button-comp"]}> 
-                    <button className={styles["back-symbol"]}> ⟻ </button>
+                    <button className={styles["back-symbol"]}> ← </button>
                 </div>
 
                 <form onSubmit={handleProfileSubmit} className={styles["profile-form"]}>
@@ -216,7 +335,7 @@ const ProfileEdit = ({ toggleEdit }) => {
                                     type="text" 
                                     id="tags" 
                                     placeholder="press enter to add tags" 
-                                    onKeyDown={handleTagChange}  
+                                    onKeyDown={handleTagChange}
                                 />
                             </div>
                         </div>
@@ -227,7 +346,7 @@ const ProfileEdit = ({ toggleEdit }) => {
                             <button className={styles["discard-button"]}> DISCARD CHANGES </button>
                         </div>
                         <div className={styles["save"]}>
-                            <button className={styles["save-button"]}> SAVE PROFILE </button>
+                            <button className={styles["save-button"]} onClick={onSaveProfile}> SAVE PROFILE </button>
                         </div>
                     </div>
                 </form>
@@ -235,10 +354,24 @@ const ProfileEdit = ({ toggleEdit }) => {
 
             {/* right side */}
             <div className={styles["edit-profile-skill"]}>
-                edit this after merging w/ johnny's commit
+                <form>
+                    <div className={styles["skill-cards-row-container"]}>
+                        {cards.map((card) =>
+                            <Card 
+                                key={card.id}
+                                {...card}
+                                isEditing={editingCardId === card.id}
+                                onEdit={() => handleEditCard(card.id)}
+                                onSave={(editedSkillName, editedDescription) =>
+                                    handleSaveCard(card.id, editedSkillName, editedDescription)
+                                }
+                            />
+                        )}
+                    </div>
+                </form>
             </div>
         </div>
     );
 };
 // change to just Profile later
-export default ProfileEdit;
+export default Profile;
