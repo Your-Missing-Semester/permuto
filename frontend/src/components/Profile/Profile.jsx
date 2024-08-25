@@ -4,10 +4,7 @@ import 'react-image-crop/dist/ReactCrop.css';
 import Modal from '../Modal/Modal'
 import { HiArrowUpTray } from "react-icons/hi2";
 import Card from '../Cards/Card';
-import clubsImage from '../Assets/cardImages/club.png';
-import spadesImage from '../Assets/cardImages/spade.png';
-import heartsImage from '../Assets/cardImages/heart.png';
-import diamondsImage from '../Assets/cardImages/diamond.png';
+import GenerateCards from '../GenerateCards/GenerateCards';
 
 const Profile = () => {
     console.info("Profile re-rendered")
@@ -36,18 +33,7 @@ const Profile = () => {
 const ProfileView = ({ onEditProfile }) => {
     console.info("ProfileView re-rendered")
 
-    const cardImagesArr = [spadesImage, heartsImage, clubsImage, diamondsImage]
-
-    const generateCards = (numCards) => {
-        return Array.from({ length: numCards }, (_, index) => ({
-            id: index + 1,
-            image: cardImagesArr[index % cardImagesArr.length],
-            skillName: `Skill ${index + 1}`,
-            description:   `Description ${index + 1}`
-        }));
-    };
-
-    const [cards, setCards] = useState(generateCards(12));
+    const [cards, setCards] = useState(GenerateCards(12));
 
     const [editingCardId, setEditingCardId] = useState(null);
 
@@ -199,18 +185,7 @@ const ProfileEdit = ({ onSaveProfile }) => {
     };
 
     // cards
-    const cardImagesArr = [spadesImage, heartsImage, clubsImage, diamondsImage]
-
-    const generateCards = (numCards) => {
-        return Array.from({ length: numCards }, (_, index) => ({
-            id: index + 1,
-            image: cardImagesArr[index % cardImagesArr.length],
-            skillName: `Skill ${index + 1}`,
-            description:   `Description ${index + 1}`
-        }));
-    };
-
-    const [cards, setCards] = useState(generateCards(12));
+    const [cards, setCards] = useState(GenerateCards(12));
 
     const [editingCardId, setEditingCardId] = useState(null);
 
