@@ -7,6 +7,7 @@ import ChangeUsername from './components/ChangeUsername/changeusername';
 import NavBar from './components/HomePage/NavBar/navBar';
 import ResetPassword from './components/ResetPassword/resetpassword';
 import Home from './pages/HomePage/homePage';
+import PinnedProfiles from './pages/PinnedProfiles/pinnedProfiles';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <Home />,
+  },
+  {
+    path: "/pinned-profiles",
+    element: <PinnedProfiles />,
   }
 ]);
 

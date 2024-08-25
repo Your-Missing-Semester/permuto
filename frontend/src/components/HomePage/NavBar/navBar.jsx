@@ -10,7 +10,7 @@ function NavBar() {
                         {/* links need to be updated */}
                         <li><Link className={styles["link-styles"]} to="/home">HOME /</Link></li>
                         <li><Link className={styles["link-styles"]}to="/profile">PROFILE /</Link></li>
-                        <li><Link className={styles["link-styles"]}to="/favourites">FAVOURITES /</Link></li>
+                        <li><Link className={styles["link-styles"]}to="/pinned-profiles">PINNED PROFILES /</Link></li>
                         <li><Link className={styles["link-styles"]}to="/settings">SETTINGS /</Link></li>
                         <li><Link className={styles["link-styles"]} to ="/logout">LOGOUT /</Link></li>
                     </ul>
