@@ -120,18 +120,37 @@ const ProfileView = ({ onEditProfile }) => {
   };
 
 const ProfileEdit = ({ onSaveProfile }) => {
-    // name
-    const [name, setName] = useState('');
+    const [profile, setProfile] = useState({
+        name: '',
+        location: '',
+        bio: '',
+        rate: '',
+        tags: []
+    });
 
-    const handleNameChange = (e) => {
-        setName(e.target.value);
-    };
+    const MAX_TEXT_LENGTH = 500;
+    const BIO_LENGTH = profile.bio?.length || 0;
 
-    // location
-    const [location, setLocation] = useState('');
+    const handleProfileChange = (e) => {
+        const { name, value } = e.target;
 
-    const handleLocationChange = (e) => {
-        setLocation(e.target.value);
+        if (name === 'tags') {
+            const trimmedValue = value.trim();
+            const currentTags = profile.tags || [];
+
+            if (e.key === "Enter") {
+                e.preventDefault();
+
+                if (trimmedValue !== "" && !currentTags.includes(trimmedValue)) {
+                    setProfile((prev) => ({...prev, tags: [...currentTags, trimmedValue]}));
+                    e.target.value = '';
+                } else {
+                    alert("Tag already exists.");
+                };
+            };
+        } else {
+            setProfile((prev) => ({ ...prev, [name]: value }));
+        }
     };
 
     // default profile pic
@@ -145,43 +164,10 @@ const ProfileEdit = ({ onSaveProfile }) => {
 
     const [modalOpen, setModalOpen] = useState(false)
 
-    // bio
-    const [bio, setBio] = useState('');
-    const MAX_TEXT_LENGTH = 500;
-    const handleBioChange = (e) => {
-        const value = e.target.value;
-        if (value.length <= MAX_TEXT_LENGTH) {
-            setBio(value);
-        };
-        setBio(e.target.value);
-    };
-
-    // rate
-    const [rate, setRate] = useState('');
-
-    const handleRateChange = (e) => {
-        setRate(e.target.value);
-    };
-
-    // tags
-    const [tag, setTag] = useState([]);
-
-    const handleTagChange = (e) => {
-        const trimmedValue = e.target.value.trim();
-
-        if (e.key === "Enter") {
-            e.preventDefault();
-
-            if (trimmedValue !== "") {
-                setTag([...tag, trimmedValue]);
-            }
-
-            e.target.value = "";
-        };
-    };
-
+    // remove tag
     const removeTag = (index) => {
-        setTag(tag.filter((e1, i) => i !== index))
+        console.info("error in removeTag")
+        setProfile((prev) => ({ ...prev, tags: prev.tags.filter((_, i) => i !== index )}))
     };
 
     // cards
@@ -204,21 +190,6 @@ const ProfileEdit = ({ onSaveProfile }) => {
         setEditingCardId(null)
     }
 
-    const handleProfileSubmit = async (e) => {
-        e.preventDefault();
-
-        const formData = new FormData()
-
-        formData.append('name', name);
-        formData.append('location', location);
-        formData.append('pfp', avatarUrl.current);
-        formData.append('bio', bio);
-        formData.append('rate', rate);
-        formData.append('tag', JSON.stringify(tag));
-
-        console.info("Profile Summary Updated.")
-    };
-
     return (
         <div className={styles["profile-edit-page"]}>
             {/* left side */}
@@ -227,7 +198,7 @@ const ProfileEdit = ({ onSaveProfile }) => {
                     <button className={styles["back-symbol"]}> ← </button>
                 </div>
 
-                <form onSubmit={handleProfileSubmit} className={styles["profile-form"]}>
+                <form onSubmit={handleProfileChange} className={styles["profile-form"]}>
                     <div className={styles["img-comp"]}>
                         <div className={styles["square-img"]}>
                             <img
@@ -252,8 +223,8 @@ const ProfileEdit = ({ onSaveProfile }) => {
                                 <input 
                                     className={styles["input-text"]}
                                     type="text" 
-                                    id="name" 
-                                    onChange={handleNameChange} 
+                                    name="name" 
+                                    onChange={handleProfileChange} 
                                     placeholder="text" 
                                     autoComplete="on"
                                 />
@@ -263,20 +234,21 @@ const ProfileEdit = ({ onSaveProfile }) => {
                                 <input 
                                     className={styles["input-text"]}
                                     type="text" 
-                                    id="location" 
-                                    onChange={handleLocationChange} 
+                                    name="location" 
+                                    onChange={handleProfileChange} 
                                     placeholder="text"
                                 />
                             </div>
                         </div>
 
                         <div className={styles["bio-comp"]}>
-                            <label className={styles["profile-label"]}> BIO {bio.length}/{MAX_TEXT_LENGTH} </label>
+                            {/* fix profile.bio.length */}
+                            <label className={styles["profile-label"]}> BIO {BIO_LENGTH}/{MAX_TEXT_LENGTH} </label>
                             <textarea 
                                 className={styles["input-long-text"]} 
                                 type="text" 
-                                id="bio" 
-                                onChange={handleBioChange} 
+                                name="bio" 
+                                onChange={handleProfileChange} 
                                 placeholder="text" 
                                 maxLength={500}
                             />
@@ -289,8 +261,8 @@ const ProfileEdit = ({ onSaveProfile }) => {
                                     className={styles["input-int"]}
                                     type="number" 
                                     min="0"
-                                    id="rate" 
-                                    onChange={handleRateChange} 
+                                    name="rate" 
+                                    onChange={handleProfileChange} 
                                     placeholder="0" 
                                 />
                                 <i className={styles["currency-symbol"]}> $ </i>
@@ -299,7 +271,7 @@ const ProfileEdit = ({ onSaveProfile }) => {
                         <div className={styles["tags-comp"]}>
                             <label className={styles["profile-label"]}> TAGS </label>
                             <div className={styles["input-tag-comp"]}>
-                                {tag.map((tag, index) => (
+                                {(profile.tags || []).map((tag, index) => (
                                     <div className={styles["tag-item"]} key={index}>
                                         <span className={styles["text"]}>{tag}</span>
                                         <span className={styles["tag-end"]} onClick={() => removeTag(index)}>&times;</span>
@@ -308,9 +280,9 @@ const ProfileEdit = ({ onSaveProfile }) => {
                                 <input 
                                     className={styles["input-tag"]}
                                     type="text" 
-                                    id="tags" 
+                                    name="tags" 
                                     placeholder="press enter to add tags" 
-                                    onKeyDown={handleTagChange}
+                                    onKeyDown={handleProfileChange}
                                 />
                             </div>
                         </div>
