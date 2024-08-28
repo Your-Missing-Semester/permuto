@@ -1,154 +1,384 @@
-.profile-page {
-    display: grid;
+body {
+    margin: 0;
+    padding: 0;
     height: 100%;
-    width: 100%;
-    background-color: rgb(254, 239, 221);
-}
+  }
 
-.nav-bar {
+.pv-page {
+    height: 100vh;
+    width: 100vw;
     display: flex;
-    align-content: space-around;
     align-items: center;
-    justify-items: start;
-    padding-left: 1%;
+    justify-content: center;
+    background-color: white;
 }
-
-.profile-details {
-    align-content: center;
-    justify-content: start;
+  
+.pv-container {
     display: flex;
-    padding-top: 2%;
-    padding-left: 10%;
+    height: 100%;
+    width: 45%;
 }
-
-.profile {
-    width: 25%;
-}
-
-.profile-pic {
-    border-radius: 50%;
-    width: 300px;
-    height: 300px;
-    border: solid rgb(250, 170, 141);
-    padding: 2%;
+  
+.pv-left-page {
+    width: 100%;
     text-align: center;
-    line-height: 300px;
+    position: relative;
+}
+  
+.back-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+  
+.user-pfp {
+    width: 200px;
+    height: 200px;
+    margin: 50px auto 0;
+    margin-top: 100px;
+    border: 3px solid rgb(226, 170, 102);
+
 }
 
 .user-name {
-    justify-self: center;
-    padding-left: 10%;
-    margin-top: 10%;
     font-size: 25px;
 }
-
-.user-info {
-    width: 50%;
-    justify-self: start;
-    margin-left: 10%;
+  
+.user-headline {
+    color: #777;
+    font-weight: bold;
 }
-
-.status-header {
-    font-size: 25px;
-    color: rgb(24, 24, 24);
-}
-
-.status-description {
-    border: thick double rgb(250, 170, 141);
-    border-radius: 25px;
-    font-size: 20px;
-}
-
-.text {
-    padding: 2%;
-    word-wrap: break-word;
-}
-
-.info {
+  
+.user-rating {
     display: flex;
-    margin-top: 3%;
+    justify-content: center;
     align-items: center;
-    font-family: 'Times New Roman', Times, serif;
+    margin: 10px 0;
     font-size: 20px;
 }
-
-.contact {
-    width: 15%;
+  
+.user-rate {
+    margin-left: 25px;
+    font-weight: bold;
+}
+  
+.user-bio {
+    margin: 5%;
+    width: 90%;
+    height: 15%;
+    text-align: justify;
+}
+  
+.user-tags {
+    display: flex;
+    justify-content: start;
+    margin: 5%;
+    gap: 10px;
+}
+  
+.dummy-tag {
+    background-color: rgb(226, 170, 102);
+    padding: 10px 10px;
+    border-radius: 20px;
+    color: white;
+}
+  
+.profile-buttons {
+    justify-content: end;
+    justify-self: end;
+    display: flex;
+    height: 3%;
+    margin-right: 2em;
+    margin-top: 15%;
+    gap: 20px;
 }
 
-.contact-button {
-    border-radius: 25px;
-    width: 100%;
-    padding-bottom: 3%;
-    background-color: rgb(250, 170, 141);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
+.copy-profile-link-button {
+    font-size: 15px;
+    font-weight: bold;
+    color:  rgb(226, 170, 102);
+    background-color: white;
+    border: 3px solid rgb(226, 170, 102);
+    padding: 5px;
     cursor: pointer;
 }
 
-.reviews {
-    margin-left: 30%;
-    margin-right: 20%;
+.edit-profile-button {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(226, 170, 102);
+    border: 2px solid rgb(226, 170, 102);;
+    padding: 5px;
+    cursor: pointer;
 }
 
-.skills {
-    display: flex;
-    margin-top: 2%;
-    padding-left: 10%;
-}
-
-.skills-header {
-    font-size: 20px;
-}
-
-.skills-detail {
-    width: 25%;
-}
-
-.mini-skills-info {
-    display: flex;
-    justify-content: space-between;
+.edit-profile-summary {
     background-color: white;
-    border-radius: 25px;
-    align-items: center;
+    width: 45%;    
+    height: 100%;
+    color: black;
+    font-weight: bold;
+    margin: .1em;
+    display: flex;
+    flex-direction: column;
 }
 
-.skill-name {
-    width: 50%;
-    margin: 3% 5% 3%;
+.back-button-comp {
+    width: 90px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
-.years-of-experience {
-    width: 20%;
-    margin-top: 3%;
-    margin-bottom: 3%;
+.back-symbol {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    display: inline-block;
 }
 
-.proof-of-skills {
-    width: 50%;
-    justify-self: start;
-    margin-left: 10%;
+.profile-edit-page {
+    display: flex;
+    width: 100%;
+    height: 100vh;
 }
 
-.proof-header {
+.profile-form {
+    width: 100%;
+    height: 100vh;
+}
+
+.img-comp {
+    width: 100%;
+    height: 35%;
+    display: grid;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.square-img {
+    width: 200px;
+    height: 200px;
+    justify-self: center;
+    border: 3px solid rgb(226, 170, 102);
+}
+
+.default-pfp {
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.change-photo-comp {
+    font-size: 20px;
+    color:  rgb(226, 170, 102);
+    background-color: transparent;
+    width: 2em;
+    height: 1.5em;
+    padding: 5px;
+    cursor: pointer;
+    justify-self: center;
+    align-self: center;
+}
+
+.change-photo-button {
+    width: 100%;
+    height: 100%;
+}
+
+.input-profile-summary-info {
+    width: 80%;
+    margin: 3em;
+    margin-top: 0.5em;
+}
+
+.profile-summary-label {
+    color: black;
     font-size: 20px;
 }
 
-.proof-info {
-    border: thick double rgb(250, 170, 141);
-    padding: 1% 3% 1%;
-    border-radius: 25px;
+.input-text {
+    color: black;
+    border: 2px solid rgb(226, 170, 102);
+    background-color: white;
+    font-size: 15px;
+    padding: .2em;
+    padding-left: .3em;
+    width: 100%;
+    font-style: italic;
 }
 
-.skill {
-    font-size: 20px;
+.profile-label {
+    font-size: 15px;
+    margin-bottom: 5px;
 }
 
-.images-and-description {
-    align-content: start;
+.name-and-location-comp {
+    margin-top: 20px;
+    display: flex;
+    column-gap: 3em;
+}
+
+.name-comp {
+    display: grid;
+    width: 45%;
+}
+
+.location-comp {
+    display: grid;
+    width: 45%;
+}
+
+.bio-comp {
+    display: grid;
+    margin-top: 20px;
+}
+
+.rate-comp {
+    display: grid;
+    margin-top: 20px;
+}
+
+.input-int {
+    width: 50%;
+    border: 2px solid rgb(226, 170, 102);
+    background-color: white;
+    padding-left: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 17px;
+    font-style: italic;
+}
+
+.rate-comp > .currency-symbol {
+    padding-left: 10px;
+    transform: translate(0, -110%);
+    pointer-events: none;
+}
+
+.input-long-text {
+    border: 2px solid rgb(226, 170, 102);
+    height: 5em;
+    background-color: white;
+    font-size: 14px;
+    padding: 2px;
+    font-style: italic;
+    resize: none;
+}
+
+.tags-comp {
+    display: grid;
+    margin-top: 5px;
+}
+
+.input-tag-comp {
+    color: black;
+    padding: .3em;
+    border: 2px solid rgb(226, 170, 102);
+}
+
+.tag-item {
+    display: inline-block;
+    background-color: rgb(254, 239, 221);
+    padding: .3em;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+.input-tag {
+    width: 90%;
+    flex-grow: 1;
+    padding: 0.5em;
+    border: none;
+    outline: none;
+    display: inline;
+}
+
+.input-tag::placeholder {
+    font-style: italic;
+}
+
+.tag-item .text {
+    padding-left: .5em;
+}
+
+.tag-item .tag-end {
+    height: 20px;
+    width: 20px;
+    background-color: rgb(254, 239, 221);
+    padding-left: .5em;
+    padding-right: .3em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.discard-or-save {
+    justify-content: end;
+    justify-self: end;
+    display: flex;
+    margin-right: 2em;
+    margin-top: 3em;
+    gap: 20px;
+}
+
+.discard {
+    border: 2px solid rgb(226, 170, 102);
+}
+
+.discard-button {
+    font-size: 15px;
+    font-weight: bold;
+    color:  rgb(226, 170, 102);
+    background-color: white;
+    border: none;
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.save {
+    border: 2px solid rgb(226, 170, 102);
+}
+
+.save-button {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(226, 170, 102);
+    border: none;
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.edit-profile-skill {
+    background-color: rgb(239, 218, 204);
+    display: inline;
     justify-content: start;
+    align-content: start;
+    width: 55%;
+    height: 100%;
 }
 
-.skill-description {
-    font-size: 20px;
+.skill-cards-row-container {
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 1.5em;
+    margin-top: 1em;
+    width: 95%;
+    height: 30%;
+}
+
+.ind-card {
+    background-color: aquamarine;
 }

@@ -19,9 +19,14 @@
     flex-direction: column;
 }
 
-.pfp {
-    width: 160px;
-    height: 160px;
+.username:hover {
+    color: #FAAA8D;
+    text-decoration: underline;
+}
+
+.user-details{
+    display: flex;
+    margin-left: auto;
 }
 
 .row1 {
@@ -36,6 +41,11 @@
     max-width: 450px;
     overflow: hidden;
     white-space: nowrap;
+}
+
+.pfp {
+    width: 160px;
+    height: 160px;
 }
 
 .username:hover {
