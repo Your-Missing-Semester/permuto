@@ -6,6 +6,7 @@ import 'dotenv/config';
 import session from 'express-session';
 import { PrismaSessionStore } from '@quixo3/prisma-session-store';
 import checkAuth from './middleware/checkAuth.js';
+import path from 'path'
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(cors({
     credentials: true
 }));
 
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -131,5 +133,9 @@ app.patch('/reset-password/:userId', checkAuth, async (req, res) => {
         res.status(500).send("Error resetting password, try again.");
     }
 });
+
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 
 export default app;

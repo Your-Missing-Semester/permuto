@@ -4,6 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "build": "npm install && npm run build:frontend",
+    "build:frontend": "npm run clean-build && cd ../frontend && npm install && npm run build && cp -R ./build ../backend/",
+    "clean-build": "rm -rf build",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
