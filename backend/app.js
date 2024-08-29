@@ -15,7 +15,7 @@ app.use(cors({
     credentials: true
 }));
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static('build'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -135,7 +135,7 @@ app.patch('/reset-password/:userId', checkAuth, async (req, res) => {
 });
 
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    res.sendFile(path.join('build', 'index.html'));
   });
 
 export default app;
