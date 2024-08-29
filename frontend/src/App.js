@@ -1,7 +1,7 @@
 import React from 'react';
 import LandingPage from './pages/LandingPage/landingpage';
 import Login from './components/Login/login';
-import SignUp from './components/SignUp/Signup';
+// import SignUp from './components/SignUp/Signup';
 import Profile from './components/Profile/Profile';
 import ChangeUsername from './components/ChangeUsername/changeusername';
 import NavBar from './components/HomePage/NavBar/navBar';
@@ -18,10 +18,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-  {
-    path: "/signup",
-    element: <SignUp />,
-  },
+  // {
+  //   path: "/signup",
+  //   element: <SignUp />,
+  // },
   {
     path: "/profile",
     element: <Profile />,
