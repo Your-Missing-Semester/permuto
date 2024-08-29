@@ -73,8 +73,43 @@ app.post('/signup', async (req, res) => {
 });
 
 // TODO T32: log in 
-app.post('/login', (req, res) => {
-    res.status(200).send("Login endpoint under construction.");
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+
+    if(!email){
+        return res.status(400).send('Please enter an email');
+    }
+
+    if(!password){
+        return res.status(400).send('Please enter a password');
+    }
+
+    try {
+        const user = await prisma.user.findUnique({
+            where: {
+                email: email,
+            },
+            select: {
+                password: true,
+            },
+        })
+
+        if(!user){
+            return res.status(400).send('Authentication failed - user email not found');
+        }
+
+        const result = await bcrypt.compare(password, user.password)
+
+        if (result === false) {
+            return res.status(400).send('Passwords do not match! Authentication failed.')
+        } else {
+            return res.send('Passwords match! User authenticated.')
+        }
+
+    } catch (error) {
+        return res.status(400).send('Error logging in');
+    }  
+
 });
 
 app.post('/changeUsername', checkAuth, (req, res) => {

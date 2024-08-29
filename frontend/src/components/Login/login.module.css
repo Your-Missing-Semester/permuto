@@ -63,24 +63,29 @@
     color:#FF4000;
 }
 
+ .required-input {
+    padding-bottom: 5px;
+    margin-top: -14px;
+} 
+
 .form input:focus {
     border: 3px solid #FF4000;
     box-shadow: 3px 4px 5px 3px #FAAA8D ;
     outline: none;
 }
 
-::placeholder {
+.form input::placeholder {
     color:#FF4000;
     font-size: 16px;
 }
 
-.forgot-password-link {
+.forgot-password {
     width: 40vh;
     text-align: left;
     margin: 0 auto 16px auto;
 }
 
-.forgot-password-link a {
+.forgot-password-link {
     color: #FF4000;
     text-decoration: none;
     font-weight: 550;
@@ -115,7 +120,7 @@
     border: none;
 }
 
-.sign-up-link {
+.sign-up {
     width: 29vh;
     text-align: left;
     margin: 0 auto 44px 0;
@@ -124,9 +129,10 @@
     line-height: 3.8vh;
 }
 
-.sign-up-link a {
+.sign-up-link {
     color: #FF4000;
     font-weight: 550;
+    text-decoration: none;
 }
 
 .login-as-header hr {
@@ -153,15 +159,15 @@
     font-size: 12px;
 }
 
-h1 {
+.title h1 {
     font-size: 18px;
     line-height: 0;
 }
 
-p {
+.login-as-header p {
     line-height: 0;
 }
 
-a {
-    text-decoration: none;
+.login-as-body p {
+    line-height: 0;
 }
